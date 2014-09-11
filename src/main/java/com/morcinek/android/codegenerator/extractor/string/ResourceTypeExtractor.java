@@ -1,6 +1,6 @@
-package com.morcinek.android.codegenerator.extractor.type;
+package com.morcinek.android.codegenerator.extractor.string;
 
-import com.morcinek.android.codegenerator.extractor.StringExtractor;
+import com.morcinek.android.codegenerator.extractor.string.StringExtractor;
 import com.morcinek.android.codegenerator.model.ResourceType;
 
 /**

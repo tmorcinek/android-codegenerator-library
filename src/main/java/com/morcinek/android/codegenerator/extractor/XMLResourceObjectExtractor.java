@@ -1,6 +1,7 @@
 package com.morcinek.android.codegenerator.extractor;
 
 import com.google.common.collect.Lists;
+import com.morcinek.android.codegenerator.extractor.string.StringExtractor;
 import com.morcinek.android.codegenerator.model.ResourceId;
 import com.morcinek.android.codegenerator.model.ResourceObject;
 import com.morcinek.android.codegenerator.model.ResourceType;

@@ -1,4 +1,4 @@
-package com.morcinek.android.codegenerator.extractor;
+package com.morcinek.android.codegenerator.extractor.string;
 
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.

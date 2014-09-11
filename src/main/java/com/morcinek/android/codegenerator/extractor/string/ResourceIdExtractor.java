@@ -1,6 +1,6 @@
-package com.morcinek.android.codegenerator.extractor.id;
+package com.morcinek.android.codegenerator.extractor.string;
 
-import com.morcinek.android.codegenerator.extractor.StringExtractor;
+import com.morcinek.android.codegenerator.extractor.string.StringExtractor;
 import com.morcinek.android.codegenerator.model.ResourceId;
 
 import java.util.regex.Matcher;
