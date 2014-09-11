@@ -21,17 +21,74 @@ public class ResourceObjectExtractorTest {
     }
 
     private InputStream getStreamFromResource(String name) {
-        return getClass().getResourceAsStream(name);
+        return getClass().getResourceAsStream("/" + name);
     }
 
     @Test
     public void layoutTest() throws Exception {
-        InputStream inputStream = getStreamFromResource("/layout.xml");
+        // given
+        InputStream inputStream = getStreamFromResource("layout.xml");
+
+        // when
         List<ResourceObject> resourceObjects = resourceObjectExtractor.extractResourceObjectsFromStream(inputStream);
+
+        // then
         Assertions.assertThat(resourceObjects).isNotNull().hasSize(1);
         ResourceObject resourceObject = resourceObjects.get(0);
         Assertions.assertThat(resourceObject.getTypeName()).isEqualTo("Button");
         Assertions.assertThat(resourceObject.getResourceId().getName()).isEqualTo("button");
+        Assertions.assertThat(resourceObject.getResourceId().getNamespace()).isNull();
+    }
+
+    @Test
+    public void mainHeader1Test() throws Exception {
+        // given
+        InputStream inputStream = getStreamFromResource("main_header_1.xml");
+
+        // when
+        List<ResourceObject> resourceObjects = resourceObjectExtractor.extractResourceObjectsFromStream(inputStream);
+
+        // then
+        Assertions.assertThat(resourceObjects).isNotNull().hasSize(0);
+    }
+
+    @Test
+    public void mainHeader2Test() throws Exception {
+        // given
+        InputStream inputStream = getStreamFromResource("main_header_2.xml");
+
+        // when
+        List<ResourceObject> resourceObjects = resourceObjectExtractor.extractResourceObjectsFromStream(inputStream);
+
+        // then
+        Assertions.assertThat(resourceObjects).isNotNull().hasSize(0);
+    }
+
+    @Test
+    public void mainNoHeaderTest() throws Exception {
+        // given
+        InputStream inputStream = getStreamFromResource("main_no_header.xml");
+
+        // when
+        List<ResourceObject> resourceObjects = resourceObjectExtractor.extractResourceObjectsFromStream(inputStream);
+
+        // then
+        Assertions.assertThat(resourceObjects).isNotNull().hasSize(0);
+    }
+
+    @Test
+    public void specificTest() throws Exception {
+        // given
+        InputStream inputStream = getStreamFromResource("specific.xml");
+
+        // when
+        List<ResourceObject> resourceObjects = resourceObjectExtractor.extractResourceObjectsFromStream(inputStream);
+
+        // then
+        Assertions.assertThat(resourceObjects).isNotNull().hasSize(1);
+        ResourceObject resourceObject = resourceObjects.get(0);
+        Assertions.assertThat(resourceObject.getTypeName()).isEqualTo("android.support.v4.view.ViewPager");
+        Assertions.assertThat(resourceObject.getResourceId().getName()).isEqualTo("pager");
         Assertions.assertThat(resourceObject.getResourceId().getNamespace()).isNull();
     }
 }

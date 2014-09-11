@@ -1,7 +1,5 @@
 package com.morcinek.android.codegenerator.model;
 
-import com.google.common.base.Objects;
-
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
  */
