@@ -1,5 +1,6 @@
 package com.morcinek.android.codegenerator.extractor;
 
+import com.morcinek.android.codegenerator.extractor.id.ResourceIdExtractor;
 import com.morcinek.android.codegenerator.model.ResourceId;
 import org.fest.assertions.Assertions;
 import org.junit.Before;
@@ -19,28 +20,28 @@ public class ResourceIdExtractorTest {
 
     @Test
     public void simpleIdTest() throws Exception {
-        ResourceId resourceId = resourceIdExtractor.extractIdNameFromIdAttribute("@+id/list");
+        ResourceId resourceId = resourceIdExtractor.extractFromString("@+id/list");
         Assertions.assertThat(resourceId.getName()).isEqualTo("list");
         Assertions.assertThat(resourceId.getNamespace()).isNull();
     }
 
     @Test
     public void simpleIdTest2() throws Exception {
-        ResourceId resourceId = resourceIdExtractor.extractIdNameFromIdAttribute("@+id/this_is_resource");
+        ResourceId resourceId = resourceIdExtractor.extractFromString("@+id/this_is_resource");
         Assertions.assertThat(resourceId.getName()).isEqualTo("this_is_resource");
         Assertions.assertThat(resourceId.getNamespace()).isNull();
     }
 
     @Test
     public void androidIdTest() throws Exception {
-        ResourceId resourceId = resourceIdExtractor.extractIdNameFromIdAttribute("@android:id/list");
+        ResourceId resourceId = resourceIdExtractor.extractFromString("@android:id/list");
         Assertions.assertThat(resourceId.getName()).isEqualTo("list");
         Assertions.assertThat(resourceId.getNamespace()).isEqualTo("android");
     }
 
     @Test
     public void androidIdTest2() throws Exception {
-        ResourceId resourceId = resourceIdExtractor.extractIdNameFromIdAttribute("@android:id/content_view");
+        ResourceId resourceId = resourceIdExtractor.extractFromString("@android:id/content_view");
         Assertions.assertThat(resourceId.getName()).isEqualTo("content_view");
         Assertions.assertThat(resourceId.getNamespace()).isEqualTo("android");
     }

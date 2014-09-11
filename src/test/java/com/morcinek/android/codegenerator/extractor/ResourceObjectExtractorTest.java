@@ -1,5 +1,7 @@
 package com.morcinek.android.codegenerator.extractor;
 
+import com.morcinek.android.codegenerator.extractor.id.ResourceIdExtractor;
+import com.morcinek.android.codegenerator.extractor.type.ResourceTypeExtractor;
 import com.morcinek.android.codegenerator.model.ResourceObject;
 import org.fest.assertions.Assertions;
 import org.junit.Before;
@@ -17,7 +19,7 @@ public class ResourceObjectExtractorTest {
 
     @Before
     public void setUp() throws Exception {
-        resourceObjectExtractor = new XMLResourceObjectExtractor(new ResourceIdExtractor());
+        resourceObjectExtractor = new XMLResourceObjectExtractor(new ResourceIdExtractor(), new ResourceTypeExtractor());
     }
 
     private InputStream getStreamFromResource(String name) {
@@ -35,7 +37,8 @@ public class ResourceObjectExtractorTest {
         // then
         Assertions.assertThat(resourceObjects).isNotNull().hasSize(1);
         ResourceObject resourceObject = resourceObjects.get(0);
-        Assertions.assertThat(resourceObject.getTypeName()).isEqualTo("Button");
+        Assertions.assertThat(resourceObject.getResourceType().getClassName()).isEqualTo("Button");
+        Assertions.assertThat(resourceObject.getResourceType().getPackageName()).isNull();
         Assertions.assertThat(resourceObject.getResourceId().getName()).isEqualTo("button");
         Assertions.assertThat(resourceObject.getResourceId().getNamespace()).isNull();
     }
@@ -87,7 +90,8 @@ public class ResourceObjectExtractorTest {
         // then
         Assertions.assertThat(resourceObjects).isNotNull().hasSize(1);
         ResourceObject resourceObject = resourceObjects.get(0);
-        Assertions.assertThat(resourceObject.getTypeName()).isEqualTo("android.support.v4.view.ViewPager");
+        Assertions.assertThat(resourceObject.getResourceType().getClassName()).isEqualTo("ViewPager");
+        Assertions.assertThat(resourceObject.getResourceType().getPackageName()).isEqualTo("android.support.v4.view");
         Assertions.assertThat(resourceObject.getResourceId().getName()).isEqualTo("pager");
         Assertions.assertThat(resourceObject.getResourceId().getNamespace()).isNull();
     }

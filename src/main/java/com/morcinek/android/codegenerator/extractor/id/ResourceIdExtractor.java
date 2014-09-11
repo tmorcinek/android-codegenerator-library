@@ -1,5 +1,6 @@
-package com.morcinek.android.codegenerator.extractor;
+package com.morcinek.android.codegenerator.extractor.id;
 
+import com.morcinek.android.codegenerator.extractor.StringExtractor;
 import com.morcinek.android.codegenerator.model.ResourceId;
 
 import java.util.regex.Matcher;
@@ -8,7 +9,7 @@ import java.util.regex.Pattern;
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
  */
-public class ResourceIdExtractor {
+public class ResourceIdExtractor implements StringExtractor<ResourceId> {
 
     /**
      * Extracts resource id from <code>android:id</code> attribute of layout widget.
@@ -19,7 +20,8 @@ public class ResourceIdExtractor {
      * @param idAttribute String value of <code>android:id</code> attribute.
      * @return ResourceId object
      */
-    public ResourceId extractIdNameFromIdAttribute(String idAttribute) {
+    @Override
+    public ResourceId extractFromString(String idAttribute) {
         IdAttributeUnion attributeUnion = new IdAttributeUnion(idAttribute);
 
         ResourceId resourceId = new ResourceId(attributeUnion.name);

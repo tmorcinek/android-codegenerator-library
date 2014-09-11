@@ -7,18 +7,18 @@ public class ResourceObject {
 
     private ResourceId resourceId;
 
-    private String typeName;
+    private ResourceType resourceType;
 
-    public ResourceObject(ResourceId resourceId, String typeName) {
+    public ResourceObject(ResourceId resourceId, ResourceType resourceType) {
         this.resourceId = resourceId;
-        this.typeName = typeName;
+        this.resourceType = resourceType;
     }
 
     public ResourceId getResourceId() {
         return resourceId;
     }
 
-    public String getTypeName() {
-        return typeName;
+    public ResourceType getResourceType() {
+        return resourceType;
     }
 }

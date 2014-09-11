@@ -3,6 +3,7 @@ package com.morcinek.android.codegenerator.extractor;
 import com.google.common.collect.Lists;
 import com.morcinek.android.codegenerator.model.ResourceId;
 import com.morcinek.android.codegenerator.model.ResourceObject;
+import com.morcinek.android.codegenerator.model.ResourceType;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -21,10 +22,13 @@ import java.util.List;
  */
 public class XMLResourceObjectExtractor implements ResourceObjectExtractor {
 
-    private ResourceIdExtractor resourceIdExtractor;
+    private StringExtractor<ResourceId> resourceIdExtractor;
 
-    public XMLResourceObjectExtractor(ResourceIdExtractor resourceIdExtractor) {
+    private StringExtractor<ResourceType> resourceTypeExtractor;
+
+    public XMLResourceObjectExtractor(StringExtractor<ResourceId> resourceIdExtractor, StringExtractor<ResourceType> resourceTypeExtractor) {
         this.resourceIdExtractor = resourceIdExtractor;
+        this.resourceTypeExtractor = resourceTypeExtractor;
     }
 
     @Override
@@ -38,13 +42,13 @@ public class XMLResourceObjectExtractor implements ResourceObjectExtractor {
     }
 
     private ResourceObject getResourceObject(Node node) {
-        ResourceId resourceId = resourceIdExtractor.extractIdNameFromIdAttribute(getAttributeValue(node, "android:id"));
-        String typeName = node.getNodeName();
-        return new ResourceObject(resourceId, typeName);
+        ResourceId resourceId = resourceIdExtractor.extractFromString(getIdAttributeValue(node));
+        ResourceType resourceType = resourceTypeExtractor.extractFromString(node.getNodeName());
+        return new ResourceObject(resourceId, resourceType);
     }
 
-    private String getAttributeValue(Node node, String attributeName) {
-        return node.getAttributes().getNamedItem(attributeName).getNodeValue();
+    private String getIdAttributeValue(Node node) {
+        return node.getAttributes().getNamedItem("android:id").getNodeValue();
     }
 
     private NodeList extractWidgetNodesWithId(InputStream inputStream) throws ParserConfigurationException, SAXException,
