@@ -3,7 +3,7 @@ package com.morcinek.android.codegenerator.extractor;
 import com.google.common.collect.Lists;
 import com.morcinek.android.codegenerator.extractor.string.StringExtractor;
 import com.morcinek.android.codegenerator.model.ResourceId;
-import com.morcinek.android.codegenerator.model.ResourceObject;
+import com.morcinek.android.codegenerator.model.Resource;
 import com.morcinek.android.codegenerator.model.ResourceType;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -21,31 +21,31 @@ import java.util.List;
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
  */
-public class XMLResourceObjectExtractor implements ResourceObjectExtractor {
+public class XMLResourceExtractor implements ResourceExtractor {
 
     private StringExtractor<ResourceId> resourceIdExtractor;
 
     private StringExtractor<ResourceType> resourceTypeExtractor;
 
-    public XMLResourceObjectExtractor(StringExtractor<ResourceId> resourceIdExtractor, StringExtractor<ResourceType> resourceTypeExtractor) {
+    public XMLResourceExtractor(StringExtractor<ResourceId> resourceIdExtractor, StringExtractor<ResourceType> resourceTypeExtractor) {
         this.resourceIdExtractor = resourceIdExtractor;
         this.resourceTypeExtractor = resourceTypeExtractor;
     }
 
     @Override
-    public List<ResourceObject> extractResourceObjectsFromStream(InputStream inputStream) throws ParserConfigurationException, SAXException, XPathExpressionException, IOException {
-        List<ResourceObject> resourceObjects = Lists.newArrayList();
+    public List<Resource> extractResourceObjectsFromStream(InputStream inputStream) throws ParserConfigurationException, SAXException, XPathExpressionException, IOException {
+        List<Resource> resources = Lists.newArrayList();
         NodeList nodeList = extractWidgetNodesWithId(inputStream);
         for (int i = 0; i < nodeList.getLength(); i++) {
-            resourceObjects.add(getResourceObject(nodeList.item(i)));
+            resources.add(getResourceObject(nodeList.item(i)));
         }
-        return resourceObjects;
+        return resources;
     }
 
-    private ResourceObject getResourceObject(Node node) {
+    private Resource getResourceObject(Node node) {
         ResourceId resourceId = resourceIdExtractor.extractFromString(getIdAttributeValue(node));
         ResourceType resourceType = resourceTypeExtractor.extractFromString(node.getNodeName());
-        return new ResourceObject(resourceId, resourceType);
+        return new Resource(resourceId, resourceType);
     }
 
     private String getIdAttributeValue(Node node) {
