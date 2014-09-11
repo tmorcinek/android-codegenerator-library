@@ -1,6 +1,6 @@
 package com.morcinek.android.codegenerator.extractor;
 
-import com.morcinek.android.codegenerator.model.Widget;
+import com.morcinek.android.codegenerator.model.ResourceObject;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -12,8 +12,8 @@ import java.util.List;
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
  */
-public interface WidgetsExtractor {
+public interface ResourceObjectExtractor {
 
-    List<Widget> extractWidgetsFromStream(InputStream inputStream) throws XPathExpressionException,
+    List<ResourceObject> extractResourceObjectsFromStream(InputStream inputStream) throws XPathExpressionException,
             ParserConfigurationException, SAXException, IOException;
 }

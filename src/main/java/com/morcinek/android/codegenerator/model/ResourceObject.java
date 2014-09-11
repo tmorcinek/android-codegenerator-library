@@ -5,13 +5,13 @@ import com.google.common.base.Objects;
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
  */
-public class Widget {
+public class ResourceObject {
 
     private String id;
 
     private String typeName;
 
-    public Widget(String id, String typeName) {
+    public ResourceObject(String id, String typeName) {
         this.id = id;
         this.typeName = typeName;
     }
@@ -29,8 +29,8 @@ public class Widget {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Widget widget = (Widget) o;
-        return Objects.equal(id, widget.id) && Objects.equal(typeName, widget.typeName);
+        ResourceObject resourceObject = (ResourceObject) o;
+        return Objects.equal(id, resourceObject.id) && Objects.equal(typeName, resourceObject.typeName);
     }
 
     @Override

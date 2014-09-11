@@ -1,6 +1,6 @@
 package com.morcinek.android.codegenerator.extractor;
 
-import com.morcinek.android.codegenerator.model.Widget;
+import com.morcinek.android.codegenerator.model.ResourceObject;
 import org.fest.assertions.Assertions;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,13 +11,13 @@ import java.util.List;
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
  */
-public class WidgetsExtractorTest {
+public class ResourceObjectExtractorTest {
 
-    private WidgetsExtractor widgetsExtractor;
+    private ResourceObjectExtractor resourceObjectExtractor;
 
     @Before
     public void setUp() throws Exception {
-        widgetsExtractor = new XMLWidgetsExtractor();
+        resourceObjectExtractor = new XMLResourceObjectExtractor();
     }
 
     private InputStream getStreamFromResource(String name) {
@@ -27,7 +27,7 @@ public class WidgetsExtractorTest {
     @Test
     public void layoutTest() throws Exception {
         InputStream inputStream = getStreamFromResource("/layout.xml");
-        List<Widget> widgets = widgetsExtractor.extractWidgetsFromStream(inputStream);
-        Assertions.assertThat(widgets).isNotNull().hasSize(1).containsOnly(new Widget("button","Button"));
+        List<ResourceObject> resourceObjects = resourceObjectExtractor.extractResourceObjectsFromStream(inputStream);
+        Assertions.assertThat(resourceObjects).isNotNull().hasSize(1).containsOnly(new ResourceObject("button", "Button"));
     }
 }
