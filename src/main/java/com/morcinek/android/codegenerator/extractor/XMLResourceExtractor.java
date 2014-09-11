@@ -1,9 +1,8 @@
 package com.morcinek.android.codegenerator.extractor;
 
-import com.google.common.collect.Lists;
 import com.morcinek.android.codegenerator.extractor.string.StringExtractor;
-import com.morcinek.android.codegenerator.model.ResourceId;
 import com.morcinek.android.codegenerator.model.Resource;
+import com.morcinek.android.codegenerator.model.ResourceId;
 import com.morcinek.android.codegenerator.model.ResourceType;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -16,6 +15,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.*;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,7 +34,7 @@ public class XMLResourceExtractor implements ResourceExtractor {
 
     @Override
     public List<Resource> extractResourceObjectsFromStream(InputStream inputStream) throws ParserConfigurationException, SAXException, XPathExpressionException, IOException {
-        List<Resource> resources = Lists.newArrayList();
+        List<Resource> resources = new ArrayList<Resource>();
         NodeList nodeList = extractWidgetNodesWithId(inputStream);
         for (int i = 0; i < nodeList.getLength(); i++) {
             resources.add(getResourceObject(nodeList.item(i)));
