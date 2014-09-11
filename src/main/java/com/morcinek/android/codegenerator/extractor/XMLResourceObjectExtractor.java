@@ -1,5 +1,7 @@
 package com.morcinek.android.codegenerator.extractor;
 
+import com.google.common.collect.Lists;
+import com.morcinek.android.codegenerator.model.ResourceId;
 import com.morcinek.android.codegenerator.model.ResourceObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -20,15 +22,26 @@ import java.util.List;
  */
 public class XMLResourceObjectExtractor implements ResourceObjectExtractor {
 
+    private ResourceIdExtractor resourceIdExtractor;
+
+    public XMLResourceObjectExtractor(ResourceIdExtractor resourceIdExtractor) {
+        this.resourceIdExtractor = resourceIdExtractor;
+    }
+
     @Override
     public List<ResourceObject> extractResourceObjectsFromStream(InputStream inputStream) throws ParserConfigurationException, SAXException, XPathExpressionException, IOException {
-        List<ResourceObject> resourceObjects = new ArrayList<ResourceObject>();
+        List<ResourceObject> resourceObjects = Lists.newArrayList();
         NodeList nodeList = extractWidgetNodesWithId(inputStream);
         for (int i = 0; i < nodeList.getLength(); i++) {
-            Node node = nodeList.item(i);
-            resourceObjects.add(new ResourceObject(getAttributeValue(node, "android:id"), node.getNodeName()));
+            resourceObjects.add(getResourceObject(nodeList.item(i)));
         }
         return resourceObjects;
+    }
+
+    private ResourceObject getResourceObject(Node node) {
+        ResourceId resourceId = resourceIdExtractor.extractIdNameFromIdAttribute(getAttributeValue(node, "android:id"));
+        String typeName = node.getNodeName();
+        return new ResourceObject(resourceId, typeName);
     }
 
     private String getAttributeValue(Node node, String attributeName) {

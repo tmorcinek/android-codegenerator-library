@@ -35,7 +35,7 @@ public class ResourceIdExtractor {
         return null;
     }
 
-    class IdAttributeUnion {
+    private class IdAttributeUnion {
 
         String prefix;
         String name;
