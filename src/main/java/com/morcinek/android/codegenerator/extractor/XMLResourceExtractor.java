@@ -1,5 +1,7 @@
 package com.morcinek.android.codegenerator.extractor;
 
+import com.morcinek.android.codegenerator.extractor.string.ResourceIdExtractor;
+import com.morcinek.android.codegenerator.extractor.string.ResourceTypeExtractor;
 import com.morcinek.android.codegenerator.extractor.string.StringExtractor;
 import com.morcinek.android.codegenerator.model.Resource;
 import com.morcinek.android.codegenerator.model.ResourceId;
@@ -27,7 +29,11 @@ public class XMLResourceExtractor implements ResourceExtractor {
 
     private StringExtractor<ResourceType> resourceTypeExtractor;
 
-    public XMLResourceExtractor(StringExtractor<ResourceId> resourceIdExtractor, StringExtractor<ResourceType> resourceTypeExtractor) {
+    public static XMLResourceExtractor createResourceExtractor() {
+        return new XMLResourceExtractor(new ResourceIdExtractor(), new ResourceTypeExtractor());
+    }
+
+    protected XMLResourceExtractor(StringExtractor<ResourceId> resourceIdExtractor, StringExtractor<ResourceType> resourceTypeExtractor) {
         this.resourceIdExtractor = resourceIdExtractor;
         this.resourceTypeExtractor = resourceTypeExtractor;
     }
