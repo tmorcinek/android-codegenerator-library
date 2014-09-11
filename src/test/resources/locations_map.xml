@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+    <com.morcinek.budget.ui.widgets.ActionBar
+            android:id="@+id/actionbar"
+            style="@style/ActionBar"
+            />
+
+    <RelativeLayout
+            android:id="@+id/map_frame_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/actionbar">
+
+        <FrameLayout
+                android:id="@+id/map_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        <ImageButton
+                android:id="@+id/home_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_button"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:layout_alignBottom="@+id/map_container"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="30dp"
+                />
+    </RelativeLayout>
+    <View
+            android:layout_below="@id/actionbar"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@drawable/horizontal_shadow"/>
+</RelativeLayout>

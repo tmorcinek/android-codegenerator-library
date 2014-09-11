@@ -36,11 +36,7 @@ public class ResourceExtractorTest {
 
         // then
         Assertions.assertThat(resources).isNotNull().hasSize(1);
-        Resource resource = resources.get(0);
-        Assertions.assertThat(resource.getResourceType().getClassName()).isEqualTo("Button");
-        Assertions.assertThat(resource.getResourceType().getPackageName()).isNull();
-        Assertions.assertThat(resource.getResourceId().getName()).isEqualTo("button");
-        Assertions.assertThat(resource.getResourceId().getNamespace()).isNull();
+        assertResource(resources.get(0), "Button", null, "button", null);
     }
 
     @Test
@@ -89,10 +85,29 @@ public class ResourceExtractorTest {
 
         // then
         Assertions.assertThat(resources).isNotNull().hasSize(1);
-        Resource resource = resources.get(0);
-        Assertions.assertThat(resource.getResourceType().getClassName()).isEqualTo("ViewPager");
-        Assertions.assertThat(resource.getResourceType().getPackageName()).isEqualTo("android.support.v4.view");
-        Assertions.assertThat(resource.getResourceId().getName()).isEqualTo("pager");
-        Assertions.assertThat(resource.getResourceId().getNamespace()).isNull();
+        assertResource(resources.get(0), "ViewPager", "android.support.v4.view", "pager", null);
+    }
+
+    @Test
+    public void locationsMapTest() throws Exception {
+        // given
+        InputStream inputStream = getStreamFromResource("locations_map.xml");
+
+        // when
+        List<Resource> resources = resourceExtractor.extractResourceObjectsFromStream(inputStream);
+
+        // then
+        Assertions.assertThat(resources).isNotNull().hasSize(4);
+        assertResource(resources.get(0), "ActionBar", "com.morcinek.budget.ui.widgets", "actionbar", null);
+        assertResource(resources.get(1), "RelativeLayout", null, "map_frame_layout", null);
+        assertResource(resources.get(2), "FrameLayout", null, "map_container", null);
+        assertResource(resources.get(3), "ImageButton", null, "home_button", null);
+    }
+
+    private void assertResource(Resource resource, String className, String packageName, String idName, String idNamespace) {
+        Assertions.assertThat(resource.getResourceType().getClassName()).isEqualTo(className);
+        Assertions.assertThat(resource.getResourceType().getPackageName()).isEqualTo(packageName);
+        Assertions.assertThat(resource.getResourceId().getName()).isEqualTo(idName);
+        Assertions.assertThat(resource.getResourceId().getNamespace()).isEqualTo(idNamespace);
     }
 }
