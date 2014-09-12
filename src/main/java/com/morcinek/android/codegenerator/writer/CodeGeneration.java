@@ -1,6 +1,9 @@
 package com.morcinek.android.codegenerator.writer;
 
+import com.google.common.collect.Lists;
 import com.morcinek.android.codegenerator.extractor.model.Resource;
+import com.morcinek.android.codegenerator.writer.providers.ResourceProvidersFactory;
+import com.morcinek.android.codegenerator.writer.providers.generic.ResourceProvider;
 
 import java.util.List;
 
@@ -9,7 +12,16 @@ import java.util.List;
  */
 public class CodeGeneration {
 
-    public String produceJavaCode(List<Resource> resources, String fileName){
+    private ResourceProvidersFactory resourceProvidersFactory;
+
+    private List<ResourceProvider> resourceProviders;
+
+    public String produceJavaCode(List<Resource> resources, String fileName) {
+        resourceProviders = Lists.newArrayList();
+        for (Resource resource : resources) {
+            resourceProviders.add(resourceProvidersFactory.getResourceProvider(resource));
+        }
+
         return null;
     }
 }
