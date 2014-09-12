@@ -2,7 +2,7 @@ package com.morcinek.android.codegenerator.extractor;
 
 import com.morcinek.android.codegenerator.extractor.string.ResourceIdExtractor;
 import com.morcinek.android.codegenerator.extractor.string.ResourceTypeExtractor;
-import com.morcinek.android.codegenerator.model.Resource;
+import com.morcinek.android.codegenerator.extractor.model.Resource;
 import org.fest.assertions.Assertions;
 import org.junit.Before;
 import org.junit.Test;

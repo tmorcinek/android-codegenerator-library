@@ -1,6 +1,6 @@
 package com.morcinek.android.codegenerator.extractor;
 
-import com.morcinek.android.codegenerator.model.Resource;
+import com.morcinek.android.codegenerator.extractor.model.Resource;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;

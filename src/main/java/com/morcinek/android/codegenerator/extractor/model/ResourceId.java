@@ -1,4 +1,4 @@
-package com.morcinek.android.codegenerator.model;
+package com.morcinek.android.codegenerator.extractor.model;
 
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
