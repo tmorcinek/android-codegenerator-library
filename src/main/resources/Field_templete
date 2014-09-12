@@ -1,0 +1,3 @@
+    @InjectView(${RESOURCE_ID})
+    private ${RESOURCE_TYPE} ${RESOURCE_NAME};
+

@@ -1,0 +1,2 @@
+        ${RESOURCE_NAME} = (Button) findViewById(${RESOURCE_ID});
+        ${RESOURCE_ASSIGNMENT}

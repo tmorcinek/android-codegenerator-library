@@ -1,0 +1,18 @@
+${PACKAGE}
+
+${IMPORTS}
+
+public class ${CLASS_NAME} extends Activity ${INTERFACES} {
+
+    ${FIELDS}
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(${LAYOUT});
+
+        ${ASSIGNMENTS}
+    }
+
+    ${METHODS}
+}
