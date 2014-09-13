@@ -27,7 +27,7 @@ public class InterfaceBuilder implements CodeBuilder {
             stringBuilder.append(interfaceName);
             stringBuilder.append(" ,");
         }
-        stringBuilder.delete(stringBuilder.length() - 3, stringBuilder.length() - 1);
+        stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
         return stringBuilder.toString();
     }
 }
