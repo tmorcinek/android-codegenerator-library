@@ -3,6 +3,7 @@ package com.morcinek.android.codegenerator.writer.builders.resources;
 import com.google.common.collect.Sets;
 import com.morcinek.android.codegenerator.writer.providers.generic.ResourceProvider;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -13,9 +14,11 @@ public class InterfaceBuilder implements ResourceCodeBuilder {
     private Set<String> interfaces = Sets.newHashSet();
 
     @Override
-    public void processResourceProvider(ResourceProvider resourceProvider) {
-        if (resourceProvider.provideInterface() != null) {
-            interfaces.addAll(resourceProvider.provideInterface());
+    public void processResourceProviders(List<ResourceProvider> resourceProviders) {
+        for (ResourceProvider resourceProvider : resourceProviders) {
+            if (resourceProvider.provideInterface() != null) {
+                interfaces.addAll(resourceProvider.provideInterface());
+            }
         }
     }
 
