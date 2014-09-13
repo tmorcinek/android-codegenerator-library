@@ -26,6 +26,20 @@ public class InterfaceBuilderTest {
     }
 
     @Test
+    public void builtNoStringTest() throws Exception {
+        // given
+        ResourceProvider resourceProvider = Mockito.mock(ResourceProvider.class);
+        when(resourceProvider.provideInterface()).thenReturn(null);
+        interfaceBuilder = new InterfaceBuilder(Lists.newArrayList(resourceProvider));
+
+        // when
+        String value = interfaceBuilder.builtString();
+
+        // then
+        Assertions.assertThat(value).isNotNull().isEqualTo("");
+    }
+
+    @Test
     public void builtAdvancedStringTest() throws Exception {
         // given
         ResourceProvider buttonResourceProvider = getMockResourceProvider("OnClickListener");

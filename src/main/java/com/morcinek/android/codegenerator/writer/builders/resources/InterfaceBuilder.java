@@ -1,5 +1,6 @@
 package com.morcinek.android.codegenerator.writer.builders.resources;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.morcinek.android.codegenerator.writer.providers.generic.ResourceProvider;
 
@@ -32,12 +33,16 @@ public class InterfaceBuilder extends ResourceCodeBuilder {
     @Override
     public String builtString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("implements ");
-        for (String interfaceName : interfaces) {
-            stringBuilder.append(interfaceName);
-            stringBuilder.append(", ");
+        Object[] objects = interfaces.toArray();
+        for (int i = 0; i < objects.length; i++) {
+            if (i == 0){
+                stringBuilder.append("implements ");
+            }
+            stringBuilder.append(objects[i]);
+            if (i < objects.length -1) {
+                stringBuilder.append(", ");
+            }
         }
-        stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
         return stringBuilder.toString();
     }
 
