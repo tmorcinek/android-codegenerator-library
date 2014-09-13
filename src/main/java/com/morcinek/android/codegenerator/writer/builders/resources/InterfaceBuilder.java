@@ -11,7 +11,7 @@ import java.util.Set;
  */
 public class InterfaceBuilder implements ResourceCodeBuilder {
 
-    private Set<String> interfaces = Sets.newHashSet();
+    private Set<String> interfaces = Sets.newTreeSet();
 
     @Override
     public void processResourceProviders(List<ResourceProvider> resourceProviders) {
@@ -28,7 +28,7 @@ public class InterfaceBuilder implements ResourceCodeBuilder {
         stringBuilder.append("implements ");
         for (String interfaceName : interfaces) {
             stringBuilder.append(interfaceName);
-            stringBuilder.append(" ,");
+            stringBuilder.append(", ");
         }
         stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
         return stringBuilder.toString();
