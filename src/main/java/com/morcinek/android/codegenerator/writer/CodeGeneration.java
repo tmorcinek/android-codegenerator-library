@@ -2,6 +2,8 @@ package com.morcinek.android.codegenerator.writer;
 
 import com.google.common.collect.Lists;
 import com.morcinek.android.codegenerator.extractor.model.Resource;
+import com.morcinek.android.codegenerator.writer.builders.CodeBuilder;
+import com.morcinek.android.codegenerator.writer.builders.InterfaceBuilder;
 import com.morcinek.android.codegenerator.writer.providers.ResourceProvidersFactory;
 import com.morcinek.android.codegenerator.writer.providers.generic.ResourceProvider;
 
@@ -20,6 +22,12 @@ public class CodeGeneration {
         resourceProviders = Lists.newArrayList();
         for (Resource resource : resources) {
             resourceProviders.add(resourceProvidersFactory.getResourceProvider(resource));
+        }
+
+        String interfaces;
+        CodeBuilder interfaceBuilder = new InterfaceBuilder();
+        for (ResourceProvider resourceProvider : resourceProviders) {
+            interfaceBuilder.processResourceProvider(resourceProvider);
         }
 
         return null;
