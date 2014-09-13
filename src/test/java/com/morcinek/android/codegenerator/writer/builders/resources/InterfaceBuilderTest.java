@@ -16,8 +16,7 @@ public class InterfaceBuilderTest {
     @Test
     public void builtOnClickListenerStringTest() throws Exception {
         // given
-        interfaceBuilder = new InterfaceBuilder();
-        interfaceBuilder.processResourceProviders(Lists.newArrayList(getMockResourceProvider("OnClickListener")));
+        interfaceBuilder = new InterfaceBuilder(Lists.newArrayList(getMockResourceProvider("OnClickListener")));
 
         // when
         String value = interfaceBuilder.builtString();
@@ -29,10 +28,9 @@ public class InterfaceBuilderTest {
     @Test
     public void builtAdvancedStringTest() throws Exception {
         // given
-        interfaceBuilder = new InterfaceBuilder();
         ResourceProvider buttonResourceProvider = getMockResourceProvider("OnClickListener");
         ResourceProvider checkBoxResourceProvider = getMockResourceProvider("OnValueChanged");
-        interfaceBuilder.processResourceProviders(Lists.newArrayList(buttonResourceProvider, checkBoxResourceProvider));
+        interfaceBuilder = new InterfaceBuilder(Lists.newArrayList(buttonResourceProvider, checkBoxResourceProvider));
 
         // when
         String value = interfaceBuilder.builtString();

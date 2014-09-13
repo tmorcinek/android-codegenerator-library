@@ -9,16 +9,23 @@ import java.util.Set;
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
  */
-public class InterfaceBuilder implements ResourceCodeBuilder {
+public class InterfaceBuilder extends ResourceCodeBuilder {
 
-    private Set<String> interfaces = Sets.newTreeSet();
+    private Set<String> interfaces;
+
+    public InterfaceBuilder(List<ResourceProvider> resourceProviders) {
+        super(resourceProviders);
+    }
 
     @Override
-    public void processResourceProviders(List<ResourceProvider> resourceProviders) {
-        for (ResourceProvider resourceProvider : resourceProviders) {
-            if (resourceProvider.provideInterface() != null) {
-                interfaces.addAll(resourceProvider.provideInterface());
-            }
+    protected void initializeFields() {
+        interfaces = Sets.newTreeSet();
+    }
+
+    @Override
+    protected void processResourceProvider(ResourceProvider resourceProvider) {
+        if (resourceProvider.provideInterface() != null) {
+            interfaces.addAll(resourceProvider.provideInterface());
         }
     }
 
@@ -32,5 +39,10 @@ public class InterfaceBuilder implements ResourceCodeBuilder {
         }
         stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
         return stringBuilder.toString();
+    }
+
+    @Override
+    public String getKey() {
+        return "INTERFACES";
     }
 }

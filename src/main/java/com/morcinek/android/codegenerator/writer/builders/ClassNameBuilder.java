@@ -17,4 +17,9 @@ public class ClassNameBuilder implements CodeBuilder {
     public String builtString() {
         return StringUtils.capitalize(fileName) + "Activity";
     }
+
+    @Override
+    public String getKey() {
+        return "CLASS_NAME";
+    }
 }

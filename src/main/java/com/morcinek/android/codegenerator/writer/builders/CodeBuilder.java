@@ -6,4 +6,6 @@ package com.morcinek.android.codegenerator.writer.builders;
 public interface CodeBuilder {
 
     String builtString();
+
+    String getKey();
 }

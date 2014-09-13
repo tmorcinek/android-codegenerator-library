@@ -17,4 +17,9 @@ public class LayoutBuilder implements CodeBuilder {
     public String builtString() {
         return "R.layout." + fileName;
     }
+
+    @Override
+    public String getKey() {
+        return "LAYOUT";
+    }
 }

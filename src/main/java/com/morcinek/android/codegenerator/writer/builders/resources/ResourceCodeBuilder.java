@@ -8,7 +8,17 @@ import java.util.List;
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
  */
-public interface ResourceCodeBuilder extends CodeBuilder {
+public abstract class ResourceCodeBuilder implements CodeBuilder {
 
-    void processResourceProviders(List<ResourceProvider> resourceProviders);
+    protected ResourceCodeBuilder(List<ResourceProvider> resourceProviders) {
+        initializeFields();
+        for (ResourceProvider resourceProvider : resourceProviders) {
+            processResourceProvider(resourceProvider);
+        }
+    }
+
+    protected void initializeFields() {
+    }
+
+    protected abstract void processResourceProvider(ResourceProvider resourceProvider);
 }
