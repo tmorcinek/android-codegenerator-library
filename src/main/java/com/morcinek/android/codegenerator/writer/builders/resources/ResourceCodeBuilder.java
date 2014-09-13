@@ -2,6 +2,7 @@ package com.morcinek.android.codegenerator.writer.builders.resources;
 
 import com.morcinek.android.codegenerator.writer.builders.CodeBuilder;
 import com.morcinek.android.codegenerator.writer.providers.generic.ResourceProvider;
+import com.morcinek.android.codegenerator.writer.templates.TemplatesProvider;
 
 import java.util.List;
 
@@ -10,7 +11,10 @@ import java.util.List;
  */
 public abstract class ResourceCodeBuilder implements CodeBuilder {
 
-    protected ResourceCodeBuilder(List<ResourceProvider> resourceProviders) {
+    protected final TemplatesProvider templatesProvider;
+
+    protected ResourceCodeBuilder(List<ResourceProvider> resourceProviders, TemplatesProvider templatesProvider) {
+        this.templatesProvider = templatesProvider;
         initializeFields();
         for (ResourceProvider resourceProvider : resourceProviders) {
             processResourceProvider(resourceProvider);

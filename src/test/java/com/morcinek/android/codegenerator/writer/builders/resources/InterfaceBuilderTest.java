@@ -3,20 +3,29 @@ package com.morcinek.android.codegenerator.writer.builders.resources;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.morcinek.android.codegenerator.writer.providers.generic.ResourceProvider;
+import com.morcinek.android.codegenerator.writer.templates.ResourceTemplatesProvider;
 import org.fest.assertions.Assertions;
 import org.junit.Test;
 import org.mockito.Mockito;
+
+import java.util.List;
 
 import static org.mockito.Mockito.when;
 
 public class InterfaceBuilderTest {
 
+    private ResourceTemplatesProvider templatesProvider = new ResourceTemplatesProvider();
+
     private ResourceCodeBuilder interfaceBuilder;
+
+    private ResourceCodeBuilder provideFieldsBuilder(List<ResourceProvider> resourceProviders) {
+        return new InterfaceBuilder(resourceProviders, templatesProvider);
+    }
 
     @Test
     public void builtOnClickListenerStringTest() throws Exception {
         // given
-        interfaceBuilder = new InterfaceBuilder(Lists.newArrayList(getMockResourceProvider("OnClickListener")));
+        interfaceBuilder = provideFieldsBuilder(Lists.newArrayList(getMockResourceProvider("OnClickListener")));
 
         // when
         String value = interfaceBuilder.builtString();
@@ -30,7 +39,7 @@ public class InterfaceBuilderTest {
         // given
         ResourceProvider resourceProvider = Mockito.mock(ResourceProvider.class);
         when(resourceProvider.provideInterface()).thenReturn(null);
-        interfaceBuilder = new InterfaceBuilder(Lists.newArrayList(resourceProvider));
+        interfaceBuilder = provideFieldsBuilder(Lists.newArrayList(resourceProvider));
 
         // when
         String value = interfaceBuilder.builtString();
@@ -44,7 +53,7 @@ public class InterfaceBuilderTest {
         // given
         ResourceProvider buttonResourceProvider = getMockResourceProvider("OnClickListener");
         ResourceProvider checkBoxResourceProvider = getMockResourceProvider("OnValueChanged");
-        interfaceBuilder = new InterfaceBuilder(Lists.newArrayList(buttonResourceProvider, checkBoxResourceProvider));
+        interfaceBuilder = provideFieldsBuilder(Lists.newArrayList(buttonResourceProvider, checkBoxResourceProvider));
 
         // when
         String value = interfaceBuilder.builtString();
