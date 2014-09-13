@@ -1,4 +1,4 @@
-package com.morcinek.android.codegenerator.writer.builders;
+package com.morcinek.android.codegenerator.writer.builders.resources;
 
 import com.google.common.collect.Sets;
 import com.morcinek.android.codegenerator.writer.providers.generic.ResourceProvider;
@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
  */
-public class InterfaceBuilder implements CodeBuilder {
+public class FieldsBuilder implements ResourceCodeBuilder {
 
     private Set<String> interfaces = Sets.newHashSet();
 
@@ -20,14 +20,14 @@ public class InterfaceBuilder implements CodeBuilder {
     }
 
     @Override
-    public String toString() {
+    public String builtString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("implements ");
         for (String interfaceName : interfaces) {
             stringBuilder.append(interfaceName);
             stringBuilder.append(" ,");
         }
-        stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
+        stringBuilder.delete(stringBuilder.length() - 3, stringBuilder.length() - 1);
         return stringBuilder.toString();
     }
 }
