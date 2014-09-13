@@ -12,13 +12,13 @@ import org.junit.Test;
 
 import java.util.List;
 
-public class CodeGeneratorTest {
+public class CodeWriterTest {
 
-    private CodeGenerator codeGenerator;
+    private CodeWriter codeWriter;
 
     @Before
     public void setUp() throws Exception {
-        codeGenerator = new CodeGenerator(new ResourceProvidersFactory(), new ResourceTemplatesProvider());
+        codeWriter = new CodeWriter(new ResourceProvidersFactory(), new ResourceTemplatesProvider());
     }
 
     @Test
@@ -27,7 +27,7 @@ public class CodeGeneratorTest {
         List<Resource> resources = Lists.newArrayList(new Resource(new ResourceId("button"), new ResourceType("Button")));
 
         // when
-        String generatedCode = codeGenerator.produceJavaCode(resources, "main");
+        String generatedCode = codeWriter.produceJavaCode(resources, "main");
 
         // then
         Assertions.assertThat(generatedCode).isNotNull().isEqualTo(
