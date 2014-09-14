@@ -21,7 +21,7 @@ public class MethodsBuilder extends ResourceCodeBuilder {
 
     @Override
     protected void initializeFields() {
-        stringBuilders = Maps.newTreeMap();
+        stringBuilders = Maps.newLinkedHashMap();
     }
 
     @Override

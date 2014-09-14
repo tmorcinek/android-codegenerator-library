@@ -63,9 +63,9 @@ public class MethodsBuilderTest {
     public void builtOnClickListenerMethodWithTwoButtonsString() throws Exception {
         // given
         methodsBuilder = provideMethodsBuilder(Lists.newArrayList(
-                        getMockResourceProvider("cancel_button", "OnClickListener"),
-                        getMockResourceProvider("exit_button", "OnClickListener"))
-        );
+                getMockResourceProvider("cancel_button", "OnClickListener"),
+                getMockResourceProvider("exit_button", "OnClickListener")
+        ));
 
         // when
         String value = methodsBuilder.builtString();
@@ -84,6 +84,45 @@ public class MethodsBuilderTest {
                         "\n" +
                         "        }\n" +
                         "    }\n" +
+                        "\n"
+        );
+    }
+
+    @Test
+    public void builtOnClickListenerMethodWithGetterString() throws Exception {
+        ResourceProvider resourceProvider = Mockito.mock(ResourceProvider.class);
+        Map<String, String> treeMap = Maps.newTreeMap();
+        treeMap.put("RESOURCE_ID", "R.id.edit_text_name");
+        treeMap.put("RESOURCE_TYPE", "EditText");
+        treeMap.put("RESOURCE_NAME_CAPITALIZED", "EditTextName");
+        when(resourceProvider.provideMethodParams()).thenReturn(treeMap);
+        when(resourceProvider.provideMethod()).thenReturn(Sets.newHashSet("Getter"));
+
+        // given
+        methodsBuilder = provideMethodsBuilder(Lists.newArrayList(
+                getMockResourceProvider("cancel_button", "OnClickListener"),
+                resourceProvider
+        ));
+
+        // when
+        String value = methodsBuilder.builtString();
+
+        // then
+        Assertions.assertThat(value).isNotNull().isEqualTo(
+                "    @Override\n" +
+                        "    public void onClick(View view) {\n" +
+                        "        switch (view.getId()) {\n" +
+                        "            case R.id.cancel_button:\n" +
+                        "                //TODO implement\n" +
+                        "                break;\n" +
+                        "\n" +
+                        "        }\n" +
+                        "    }\n" +
+                        "\n" +
+                        "    private EditText getEditTextName(){\n" +
+                        "        return (EditText) findViewById(R.id.edit_text_name);\n" +
+                        "    }" +
+                        "\n" +
                         "\n"
         );
     }
