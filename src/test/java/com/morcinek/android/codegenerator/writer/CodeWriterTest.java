@@ -6,6 +6,7 @@ import com.morcinek.android.codegenerator.extractor.model.ResourceId;
 import com.morcinek.android.codegenerator.extractor.model.ResourceType;
 import com.morcinek.android.codegenerator.writer.providers.ResourceProvidersFactory;
 import com.morcinek.android.codegenerator.writer.templates.ResourceTemplatesProvider;
+import com.morcinek.android.codegenerator.writer.templates.TemplatesProvider;
 import org.fest.assertions.Assertions;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,6 +14,8 @@ import org.junit.Test;
 import java.util.List;
 
 public class CodeWriterTest {
+
+    private TemplatesProvider templatesProvider = new ResourceTemplatesProvider();
 
     private CodeWriter codeWriter;
 
@@ -22,7 +25,7 @@ public class CodeWriterTest {
     }
 
     @Test
-    public void produceJavaCodeTest() throws Exception {
+    public void produceMainActivytCodeTest() throws Exception {
         // given
         List<Resource> resources = Lists.newArrayList(new Resource(new ResourceId("button"), new ResourceType("Button")));
 
@@ -30,34 +33,7 @@ public class CodeWriterTest {
         String generatedCode = codeWriter.produceJavaCode(resources, "main");
 
         // then
-        Assertions.assertThat(generatedCode).isNotNull().isEqualTo(
-                "\n" +
-                        "\n" +
-                        "\n" +
-                        "\n" +
-                        "public class MainActivity extends Activity implements OnClickListener {\n" +
-                        "\n" +
-                        "\n" +
-                        "    @Override\n" +
-                        "    protected void onCreate(Bundle savedInstanceState) {\n" +
-                        "        super.onCreate(savedInstanceState);\n" +
-                        "        setContentView(R.layout.main);\n" +
-                        "\n" +
-                        "        findViewById(R.id.button).setOnClickListener(this);\n" +
-                        "\n" +
-                        "    }\n" +
-                        "\n" +
-                        "    @Override\n" +
-                        "    public void onClick(View view) {\n" +
-                        "        switch (view.getId()) {\n" +
-                        "            case R.id.button:\n" +
-                        "                //TODO implement\n" +
-                        "                break;\n" +
-                        "\n" +
-                        "        }\n" +
-                        "    }\n" +
-                        "\n" +
-                        "}\n"
-        );
+        String expectedCode = templatesProvider.provideTemplateForName("MainActivity.java");
+        Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
     }
 }

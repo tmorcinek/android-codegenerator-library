@@ -1,6 +1,5 @@
-${PACKAGE}
+package ;
 
-${IMPORTS}
 
 public class ${CLASS_NAME} extends Activity ${INTERFACES} {
 
