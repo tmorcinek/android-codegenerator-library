@@ -9,13 +9,11 @@ import com.morcinek.android.codegenerator.writer.builders.LayoutBuilder;
 import com.morcinek.android.codegenerator.writer.builders.resources.AssignmentsBuilder;
 import com.morcinek.android.codegenerator.writer.builders.resources.FieldsBuilder;
 import com.morcinek.android.codegenerator.writer.builders.resources.InterfaceBuilder;
-import com.morcinek.android.codegenerator.writer.builders.resources.ResourceCodeBuilder;
 import com.morcinek.android.codegenerator.writer.providers.ResourceProvidersFactory;
 import com.morcinek.android.codegenerator.writer.providers.generic.ResourceProvider;
 import com.morcinek.android.codegenerator.writer.templates.TemplatesProvider;
 import com.morcinek.android.codegenerator.writer.templates.TemplateManager;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -42,7 +40,7 @@ public class CodeWriter {
             fileTemplate.addTemplateValue(key, buildersMap.get(key).builtString());
         }
 
-        return fileTemplate.getTemplate();
+        return fileTemplate.getResult();
     }
 
     private List<ResourceProvider> getResourceProviders(List<Resource> resources) {

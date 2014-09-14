@@ -17,7 +17,7 @@ public class TemplateManagerTest {
         templateManager.addTemplateValue("RESOURCE_ID", "R.id.done_button");
 
         // then
-        String result = templateManager.getTemplate();
+        String result = templateManager.getResult();
         Assertions.assertThat(result).isNotNull().isEqualTo("doneButton = (Button) findViewById(R.id.done_button);");
     }
 
@@ -29,7 +29,7 @@ public class TemplateManagerTest {
 
         // when
         // then
-        String templateManagerTemplate = templateManager.getTemplate();
+        String templateManagerTemplate = templateManager.getResult();
         Assertions.assertThat(templateManagerTemplate).isNotNull().isEmpty();
     }
 
@@ -43,7 +43,7 @@ public class TemplateManagerTest {
         templateManager.addTemplateValue("RESOURCE_NAME", "doneButton");
 
         // then
-        String templateManagerTemplate = templateManager.getTemplate();
+        String templateManagerTemplate = templateManager.getResult();
         Assertions.assertThat(templateManagerTemplate).isNotNull().isEqualTo("doneButton = ()");
     }
 }

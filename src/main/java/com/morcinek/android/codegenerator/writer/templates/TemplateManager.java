@@ -15,7 +15,7 @@ public class TemplateManager {
         template = template.replace(getKeyWrapper(key), value);
     }
 
-    public String getTemplate() {
+    public String getResult() {
         return template.replaceAll("\\$\\{\\w+\\}", "");
     }
 

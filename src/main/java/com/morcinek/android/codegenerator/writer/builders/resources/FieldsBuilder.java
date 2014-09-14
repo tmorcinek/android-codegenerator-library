@@ -35,7 +35,7 @@ public class FieldsBuilder extends ResourceCodeBuilder {
                 templateManager.addTemplateValue(key, stringStringMap.get(key));
             }
         }
-        stringBuilder.append(templateManager.getTemplate());
+        stringBuilder.append(templateManager.getResult());
     }
 
     @Override
