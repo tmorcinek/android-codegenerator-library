@@ -50,6 +50,6 @@ public class FieldsBuilder extends ResourceCodeBuilder {
 
     @Override
     public String getKey() {
-        return "Fields";
+        return "FIELDS";
     }
 }
