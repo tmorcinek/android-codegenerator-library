@@ -1,7 +1,5 @@
 package com.morcinek.android.codegenerator.extractor.string;
 
-import com.morcinek.android.codegenerator.extractor.string.StringExtractor;
-
 import java.io.File;
 
 /**

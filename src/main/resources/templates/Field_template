@@ -1,0 +1,1 @@
+    private ${RESOURCE_TYPE} ${RESOURCE_NAME};
