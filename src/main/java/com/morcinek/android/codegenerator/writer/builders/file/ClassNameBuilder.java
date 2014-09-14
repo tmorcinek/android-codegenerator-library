@@ -1,5 +1,6 @@
-package com.morcinek.android.codegenerator.writer.builders;
+package com.morcinek.android.codegenerator.writer.builders.file;
 
+import com.morcinek.android.codegenerator.writer.builders.CodeBuilder;
 import org.apache.commons.lang3.StringUtils;
 
 /**

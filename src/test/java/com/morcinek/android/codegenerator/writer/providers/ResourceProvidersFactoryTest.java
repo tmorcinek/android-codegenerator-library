@@ -27,7 +27,7 @@ public class ResourceProvidersFactoryTest {
         Resource resource = new Resource(new ResourceId("button"), new ResourceType("Button"));
 
         // when
-        ResourceProvider resourceProvider = resourceProvidersFactory.getResourceProvider(resource);
+        ResourceProvider resourceProvider = resourceProvidersFactory.createResourceProvider(resource);
 
         // then
         Assertions.assertThat(resourceProvider).isNotNull().isInstanceOf(ButtonProvider.class);

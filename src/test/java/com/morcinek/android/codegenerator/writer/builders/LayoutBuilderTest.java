@@ -1,5 +1,6 @@
 package com.morcinek.android.codegenerator.writer.builders;
 
+import com.morcinek.android.codegenerator.writer.builders.file.LayoutBuilder;
 import org.fest.assertions.Assertions;
 import org.junit.Test;
 

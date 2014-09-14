@@ -16,7 +16,7 @@ import java.util.HashSet;
  */
 public class ResourceProvidersFactory {
 
-    public ResourceProvider getResourceProvider(Resource resource) {
+    public ResourceProvider createResourceProvider(Resource resource) {
         if (isApplicable(resource, "Button", "ImageButton")) {
             return new ButtonProvider(resource);
         } else if (isApplicable(resource, "CheckBox", "EditText", "View")) {
