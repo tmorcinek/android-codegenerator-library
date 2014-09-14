@@ -26,6 +26,11 @@ public class ButtonProvider extends AbstractResourceProvider {
     }
 
     @Override
+    public Set<String> provideField() {
+        return null;
+    }
+
+    @Override
     public Set<String> provideMethod() {
         return Sets.newHashSet("OnClickListener");
     }

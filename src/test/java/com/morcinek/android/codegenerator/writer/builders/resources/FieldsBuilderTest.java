@@ -2,6 +2,7 @@ package com.morcinek.android.codegenerator.writer.builders.resources;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 import com.morcinek.android.codegenerator.writer.providers.generic.ResourceProvider;
 import com.morcinek.android.codegenerator.writer.templates.ResourceTemplatesProvider;
 import org.apache.commons.lang3.StringUtils;
@@ -11,6 +12,7 @@ import org.mockito.Mockito;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import static org.mockito.Mockito.when;
 
@@ -37,38 +39,50 @@ public class FieldsBuilderTest {
     }
 
     @Test
-    public void builtOneFieldString() throws Exception {
+    public void builtButtonsFieldString() throws Exception {
         // given
-        interfaceBuilder = provideFieldsBuilder(Lists.newArrayList(getMockResourceProvider("button")));
+        interfaceBuilder = provideFieldsBuilder(Lists.newArrayList(getMockResourceProvider("button", null)));
 
         // when
         String value = interfaceBuilder.builtString();
 
         // then
-        Assertions.assertThat(value).isNotNull().isEqualTo("    private Button button;\n");
+        Assertions.assertThat(value).isNotNull().isEqualTo("");
+    }
+
+    @Test
+    public void builtDefaultFieldString() throws Exception {
+        // given
+        interfaceBuilder = provideFieldsBuilder(Lists.newArrayList(getMockResourceProvider("view", Sets.newHashSet(""))));
+
+        // when
+        String value = interfaceBuilder.builtString();
+
+        // then
+        Assertions.assertThat(value).isNotNull().isEqualTo("    private View view;\n");
     }
 
     @Test
     public void builtTwoFieldString() throws Exception {
         // given
-        interfaceBuilder = provideFieldsBuilder(Lists.newArrayList(getMockResourceProvider("button"), getMockResourceProvider("view")));
+        interfaceBuilder = provideFieldsBuilder(Lists.newArrayList(getMockResourceProvider("button", null), getMockResourceProvider("view", Sets.newHashSet(""))));
 
         // when
         String value = interfaceBuilder.builtString();
 
         // then
         Assertions.assertThat(value).isNotNull().isEqualTo(
-                "    private Button button;\n" +
                 "    private View view;\n"
         );
     }
 
-    private ResourceProvider getMockResourceProvider(String name) {
+    private ResourceProvider getMockResourceProvider(String name, Set<String> fields) {
         ResourceProvider resourceProvider = Mockito.mock(ResourceProvider.class);
         Map<String, String> treeMap = Maps.newHashMap();
         treeMap.put("RESOURCE_TYPE", StringUtils.capitalize(name));
         treeMap.put("RESOURCE_NAME", name);
         when(resourceProvider.provideValues()).thenReturn(treeMap);
+        when(resourceProvider.provideField()).thenReturn(fields);
         return resourceProvider;
     }
 }

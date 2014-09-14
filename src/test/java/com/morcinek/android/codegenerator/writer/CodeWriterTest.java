@@ -37,8 +37,6 @@ public class CodeWriterTest {
                         "\n" +
                         "public class MainActivity extends Activity implements OnClickListener {\n" +
                         "\n" +
-                        "    private Button button;\n" +
-                        "\n" +
                         "\n" +
                         "    @Override\n" +
                         "    protected void onCreate(Bundle savedInstanceState) {\n" +

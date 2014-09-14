@@ -14,8 +14,6 @@ public class FieldsBuilder extends ResourceCodeBuilder {
 
     private StringBuilder stringBuilder;
 
-    private String template;
-
     public FieldsBuilder(List<ResourceProvider> resourceProviders, TemplatesProvider templatesProvider) {
         super(resourceProviders, templatesProvider);
     }
@@ -23,19 +21,21 @@ public class FieldsBuilder extends ResourceCodeBuilder {
     @Override
     protected void initializeFields() {
         stringBuilder = new StringBuilder();
-        template = templatesProvider.provideTemplateForName("Field_template");
     }
 
     @Override
     protected void processResourceProvider(ResourceProvider resourceProvider) {
-        TemplateManager templateManager = new TemplateManager(template);
-        if (resourceProvider.provideValues() != null) {
-            Map<String, String> stringStringMap = resourceProvider.provideValues();
-            for (String key : stringStringMap.keySet()) {
-                templateManager.addTemplateValue(key, stringStringMap.get(key));
+        if (resourceProvider.provideField() != null) {
+            for (String field : resourceProvider.provideField()) {
+                TemplateManager templateManager = getTemplateManager(field);
+                templateManager.addTemplateValues(resourceProvider.provideValues());
+                stringBuilder.append(templateManager.getResult());
             }
         }
-        stringBuilder.append(templateManager.getResult());
+    }
+
+    private TemplateManager getTemplateManager(String assignment) {
+        return new TemplateManager(templatesProvider.provideTemplateForName("Field_"+ assignment +"_template"));
     }
 
     @Override
