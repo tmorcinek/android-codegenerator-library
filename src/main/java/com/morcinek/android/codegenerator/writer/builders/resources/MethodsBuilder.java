@@ -26,10 +26,10 @@ public class MethodsBuilder extends ResourceCodeBuilder {
 
     @Override
     protected void processResourceProvider(ResourceProvider resourceProvider) {
-        if (resourceProvider.provideInterface() != null) {
-            for (String interfaceName : resourceProvider.provideInterface()) {
-                StringBuilder stringBuilder = getStringBuilder(interfaceName);
-                TemplateManager templateManager = getTemplateManagerForInterfaceCase(interfaceName);
+        if (resourceProvider.provideMethod() != null) {
+            for (String method : resourceProvider.provideMethod()) {
+                StringBuilder stringBuilder = getStringBuilder(method);
+                TemplateManager templateManager = getTemplateManagerForMethodCase(method);
                 templateManager.addTemplateValues(resourceProvider.provideMethodParams());
                 stringBuilder.append(templateManager.getResult());
             }
@@ -37,29 +37,29 @@ public class MethodsBuilder extends ResourceCodeBuilder {
 
     }
 
-    private StringBuilder getStringBuilder(String interfaceName) {
-        StringBuilder stringBuilder = stringBuilders.get(interfaceName);
+    private StringBuilder getStringBuilder(String method) {
+        StringBuilder stringBuilder = stringBuilders.get(method);
         if (stringBuilder == null) {
             stringBuilder = new StringBuilder();
-            stringBuilders.put(interfaceName, stringBuilder);
+            stringBuilders.put(method, stringBuilder);
         }
         return stringBuilder;
     }
 
-    private TemplateManager getTemplateManagerForInterfaceCase(String interfaceName) {
-        return new TemplateManager(templatesProvider.provideTemplateForName(interfaceName + "_Case_template"));
+    private TemplateManager getTemplateManagerForMethodCase(String method) {
+        return new TemplateManager(templatesProvider.provideTemplateForName(method + "_Case_template"));
     }
 
-    private TemplateManager getTemplateManagerForInterface(String interfaceName) {
-        return new TemplateManager(templatesProvider.provideTemplateForName(interfaceName + "_template"));
+    private TemplateManager getTemplateManagerForMethod(String method) {
+        return new TemplateManager(templatesProvider.provideTemplateForName(method + "_template"));
     }
 
     @Override
     public String builtString() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (String interfaceName : stringBuilders.keySet()) {
-            TemplateManager templateManager = getTemplateManagerForInterface(interfaceName);
-            templateManager.addTemplateValue("CASES", stringBuilders.get(interfaceName).toString());
+        for (String method : stringBuilders.keySet()) {
+            TemplateManager templateManager = getTemplateManagerForMethod(method);
+            templateManager.addTemplateValue("CASES", stringBuilders.get(method).toString());
             stringBuilder.append(templateManager.getResult());
             stringBuilder.append("\n");
         }

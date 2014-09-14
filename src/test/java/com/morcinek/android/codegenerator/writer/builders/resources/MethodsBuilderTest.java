@@ -93,7 +93,7 @@ public class MethodsBuilderTest {
         Map<String, String> treeMap = Maps.newTreeMap();
         treeMap.put("RESOURCE_ID", "R.id." + resourceId);
         when(resourceProvider.provideMethodParams()).thenReturn(treeMap);
-        when(resourceProvider.provideInterface()).thenReturn(Sets.newHashSet(methodName));
+        when(resourceProvider.provideMethod()).thenReturn(Sets.newHashSet(methodName));
         return resourceProvider;
     }
 
