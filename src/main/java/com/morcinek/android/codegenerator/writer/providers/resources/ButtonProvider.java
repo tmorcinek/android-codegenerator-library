@@ -41,6 +41,7 @@ public class ButtonProvider extends AbstractResourceProvider {
         Map<String, String> values = Maps.newHashMap();
         values.put("RESOURCE_ID", getResourceId());
         values.put("RESOURCE_NAME", getResourceName());
+        values.put("RESOURCE_TYPE", resource.getResourceType().getClassName());
         values.put("RESOURCE_ASSIGNMENT", getResourceName() + ".setOnClickListener(this);");
         return values;
     }

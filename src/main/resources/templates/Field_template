@@ -1,1 +1,1 @@
-private ${RESOURCE_TYPE} ${RESOURCE_NAME};
+    private ${RESOURCE_TYPE} ${RESOURCE_NAME};

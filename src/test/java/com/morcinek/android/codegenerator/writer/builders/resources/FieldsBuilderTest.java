@@ -49,7 +49,7 @@ public class FieldsBuilderTest {
         String value = interfaceBuilder.builtString();
 
         // then
-        Assertions.assertThat(value).isNotNull().isEqualTo("private Button button;\n");
+        Assertions.assertThat(value).isNotNull().isEqualTo("    private Button button;\n");
     }
 
     @Test
@@ -62,8 +62,8 @@ public class FieldsBuilderTest {
 
         // then
         Assertions.assertThat(value).isNotNull().isEqualTo(
-                "private Button button;\n" +
-                "private View view;\n"
+                "    private Button button;\n" +
+                "    private View view;\n"
         );
     }
 

@@ -20,7 +20,7 @@ public class ResourceTemplatesProviderTest {
     public void provideAssignmentTemplateTest() throws Exception {
         String template = templatesProvider.provideTemplateForName("Assignment_template");
         Assertions.assertThat(template).isNotNull().isNotEmpty().isEqualTo(
-                "        ${RESOURCE_NAME} = (Button) findViewById(${RESOURCE_ID});\n" +
-                        "        ${RESOURCE_ASSIGNMENT}\n");
+                "        ${RESOURCE_NAME} = (${RESOURCE_TYPE}) findViewById(${RESOURCE_ID});\n" +
+                        "        ${RESOURCE_ASSIGNMENT}");
     }
 }

@@ -6,6 +6,7 @@ import com.morcinek.android.codegenerator.extractor.model.Resource;
 import com.morcinek.android.codegenerator.writer.builders.ClassNameBuilder;
 import com.morcinek.android.codegenerator.writer.builders.CodeBuilder;
 import com.morcinek.android.codegenerator.writer.builders.LayoutBuilder;
+import com.morcinek.android.codegenerator.writer.builders.resources.AssignmentsBuilder;
 import com.morcinek.android.codegenerator.writer.builders.resources.FieldsBuilder;
 import com.morcinek.android.codegenerator.writer.builders.resources.InterfaceBuilder;
 import com.morcinek.android.codegenerator.writer.builders.resources.ResourceCodeBuilder;
@@ -58,6 +59,7 @@ public class CodeWriter {
         registerCodeBuilder(codeBuilderMap, new LayoutBuilder(fileName));
         registerCodeBuilder(codeBuilderMap, new InterfaceBuilder(resourceProviders, templatesProvider));
         registerCodeBuilder(codeBuilderMap, new FieldsBuilder(resourceProviders, templatesProvider));
+        registerCodeBuilder(codeBuilderMap, new AssignmentsBuilder(resourceProviders, templatesProvider));
         return codeBuilderMap;
     }
 
