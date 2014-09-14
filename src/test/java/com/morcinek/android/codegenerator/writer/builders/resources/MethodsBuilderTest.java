@@ -91,7 +91,7 @@ public class MethodsBuilderTest {
     @Test
     public void builtOnClickListenerMethodWithGetterString() throws Exception {
         ResourceProvider resourceProvider = Mockito.mock(ResourceProvider.class);
-        Map<String, String> treeMap = Maps.newTreeMap();
+        Map<String, String> treeMap = Maps.newHashMap();
         treeMap.put("RESOURCE_ID", "R.id.edit_text_name");
         treeMap.put("RESOURCE_TYPE", "EditText");
         treeMap.put("RESOURCE_NAME_CAPITALIZED", "EditTextName");
@@ -129,7 +129,7 @@ public class MethodsBuilderTest {
 
     private ResourceProvider getMockResourceProvider(String resourceId, String methodName) {
         ResourceProvider resourceProvider = Mockito.mock(ResourceProvider.class);
-        Map<String, String> treeMap = Maps.newTreeMap();
+        Map<String, String> treeMap = Maps.newHashMap();
         treeMap.put("RESOURCE_ID", "R.id." + resourceId);
         when(resourceProvider.provideMethodParams()).thenReturn(treeMap);
         when(resourceProvider.provideMethod()).thenReturn(Sets.newHashSet(methodName));

@@ -69,7 +69,7 @@ public class FieldsBuilderTest {
 
     private ResourceProvider getMockResourceProvider(String name) {
         ResourceProvider resourceProvider = Mockito.mock(ResourceProvider.class);
-        Map<String, String> treeMap = Maps.newTreeMap();
+        Map<String, String> treeMap = Maps.newHashMap();
         treeMap.put("RESOURCE_TYPE", StringUtils.capitalize(name));
         treeMap.put("RESOURCE_NAME", name);
         when(resourceProvider.provideField()).thenReturn(treeMap);
