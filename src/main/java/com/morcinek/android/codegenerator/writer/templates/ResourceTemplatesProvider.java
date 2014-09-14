@@ -13,7 +13,7 @@ public class ResourceTemplatesProvider implements TemplatesProvider {
 
     @Override
     public String provideTemplateForName(String templateName) {
-        URL url = Resources.getResource("templates/" + templateName);
+        URL url = Resources.getResource(templateName);
         try {
             return Resources.toString(url, Charset.defaultCharset());
         } catch (IOException e) {
