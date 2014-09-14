@@ -20,12 +20,10 @@ public class ButtonProvider extends AbstractResourceProvider {
         return Sets.newHashSet("OnClickListener");
     }
 
-//    @Override
-//    public Map<String, String> provideAssignment() {
-//        Map<String, String> values = Maps.newHashMap();
-//        values.put("RESOURCE_ASSIGNMENT", getResourceName() + ".setOnClickListener(this);");
-//        return values;
-//    }
+    @Override
+    public Set<String> provideAssignment() {
+        return Sets.newHashSet("Button");
+    }
 
     @Override
     public Set<String> provideMethod() {

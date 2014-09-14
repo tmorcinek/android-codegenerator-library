@@ -14,8 +14,6 @@ public class AssignmentsBuilder extends ResourceCodeBuilder {
 
     private StringBuilder stringBuilder;
 
-    private String template;
-
     public AssignmentsBuilder(List<ResourceProvider> resourceProviders, TemplatesProvider templatesProvider) {
         super(resourceProviders, templatesProvider);
     }
@@ -23,19 +21,21 @@ public class AssignmentsBuilder extends ResourceCodeBuilder {
     @Override
     protected void initializeFields() {
         stringBuilder = new StringBuilder();
-        template = templatesProvider.provideTemplateForName("Assignment_template");
     }
 
     @Override
     protected void processResourceProvider(ResourceProvider resourceProvider) {
-        TemplateManager templateManager = new TemplateManager(template);
-//        if (resourceProvider.provideAssignment() != null) {
-            Map<String, String> stringStringMap = resourceProvider.provideValues();
-            for (String key : stringStringMap.keySet()) {
-                templateManager.addTemplateValue(key, stringStringMap.get(key));
+        if (resourceProvider.provideAssignment() != null) {
+            for (String assignment : resourceProvider.provideAssignment()) {
+                TemplateManager templateManager = getTemplateManager(assignment);
+                templateManager.addTemplateValues(resourceProvider.provideValues());
+                stringBuilder.append(templateManager.getResult());
             }
-//        }
-        stringBuilder.append(templateManager.getResult());
+        }
+    }
+
+    private TemplateManager getTemplateManager(String assignment) {
+        return new TemplateManager(templatesProvider.provideTemplateForName("Assignment_"+ assignment +"_template"));
     }
 
     @Override

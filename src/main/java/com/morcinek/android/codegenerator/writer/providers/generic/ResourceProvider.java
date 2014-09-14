@@ -13,4 +13,6 @@ public interface ResourceProvider {
     public Set<String> provideInterface();
 
     public Set<String> provideMethod();
+
+    public Set<String> provideAssignment();
 }
