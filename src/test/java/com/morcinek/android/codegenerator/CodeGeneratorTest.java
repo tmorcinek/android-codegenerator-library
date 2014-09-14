@@ -51,6 +51,16 @@ public class CodeGeneratorTest {
         Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/SearchListActivity.java"));
     }
 
+    @Test
+    public void createGameProduceCodeTest() throws Exception {
+        // given
+        // when
+        String producedCode = produceCodeFromFilePath("layouts/create_game.xml");
+
+        // then
+        Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/CreateGameActivity.java"));
+    }
+
     private InputStream getStreamFromResource(String name) {
         return getClass().getResourceAsStream("/" + name);
     }

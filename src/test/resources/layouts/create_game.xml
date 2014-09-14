@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/default_margin">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/game_name_header"
+                style="@style/FormHeaderText"
+                android:layout_marginTop="0dp" />
+
+        <EditText
+                android:id="@+id/game_name"
+                android:hint="@string/game_name_hint"
+                style="@style/FormEditText"
+                android:singleLine="true"
+                android:inputType="textCapWords"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/game_description_header"
+                style="@style/FormHeaderText" />
+
+        <EditText
+                android:id="@+id/game_description"
+                android:hint="@string/game_description_hint"
+                style="@style/FormEditText"
+                android:inputType="textCapSentences"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/game_users_number_header"
+                style="@style/FormHeaderText" />
+
+        <EditText
+                android:id="@+id/game_users_number"
+                android:hint="E.g. 4"
+                style="@style/FormEditText"
+                android:singleLine="true"
+                android:inputType="number" />
+        <!--hint from here will be deleted and put widget instead of EditText-->
+    </LinearLayout>
+</ScrollView>
