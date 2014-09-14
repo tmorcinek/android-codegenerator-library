@@ -25,7 +25,7 @@ public class CodeWriterTest {
     }
 
     @Test
-    public void produceMainActivytCodeTest() throws Exception {
+    public void produceMainActivityCodeTest() throws Exception {
         // given
         List<Resource> resources = Lists.newArrayList(new Resource(new ResourceId("button"), new ResourceType("Button")));
 
@@ -34,6 +34,22 @@ public class CodeWriterTest {
 
         // then
         String expectedCode = templatesProvider.provideTemplateForName("MainActivity.java");
+        Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
+    }
+
+    @Test
+    public void produceTermsActivityCodeTest() throws Exception {
+        // given
+        List<Resource> resources = Lists.newArrayList(
+                new Resource(new ResourceId("button"), new ResourceType("Button")),
+                new Resource(new ResourceId("accepts_terms"), new ResourceType("CheckBox"))
+        );
+
+        // when
+        String generatedCode = codeWriter.produceJavaCode(resources, "terms");
+
+        // then
+        String expectedCode = templatesProvider.provideTemplateForName("TermsActivity.java");
         Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
     }
 }
