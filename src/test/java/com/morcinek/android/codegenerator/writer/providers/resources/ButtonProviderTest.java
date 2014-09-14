@@ -44,4 +44,48 @@ public class ButtonProviderTest {
         Assertions.assertThat(values.get("RESOURCE_TYPE")).isNotNull().isEqualTo("Button");
         Assertions.assertThat(values.get("RESOURCE_NAME")).isNotNull().isEqualTo("button");
     }
+
+    @Test
+    public void provideFieldAdvancedTest() throws Exception {
+        // given
+        resourceProvider = new ButtonProvider(new Resource(new ResourceId("done_button"), new ResourceType("Button")));
+
+        // when
+        Map<String, String> values = resourceProvider.provideField();
+
+        // then
+        Assertions.assertThat(values.get("RESOURCE_ID")).isNotNull().isEqualTo("R.id.done_button");
+        Assertions.assertThat(values.get("RESOURCE_TYPE")).isNotNull().isEqualTo("Button");
+        Assertions.assertThat(values.get("RESOURCE_NAME")).isNotNull().isEqualTo("doneButton");
+    }
+
+    @Test
+    public void provideFieldAdvanced2Test() throws Exception {
+        // given
+        resourceProvider = new ButtonProvider(new Resource(new ResourceId("done_job_button"), new ResourceType("Button")));
+
+        // when
+        Map<String, String> values = resourceProvider.provideField();
+
+        // then
+        Assertions.assertThat(values.get("RESOURCE_ID")).isNotNull().isEqualTo("R.id.done_job_button");
+        Assertions.assertThat(values.get("RESOURCE_TYPE")).isNotNull().isEqualTo("Button");
+        Assertions.assertThat(values.get("RESOURCE_NAME")).isNotNull().isEqualTo("doneJobButton");
+    }
+
+    @Test
+    public void provideFieldNamespaceIdTest() throws Exception {
+        // given
+        ResourceId resourceId = new ResourceId("list");
+        resourceId.setNamespace("android");
+        resourceProvider = new ButtonProvider(new Resource(resourceId, new ResourceType("List")));
+
+        // when
+        Map<String, String> values = resourceProvider.provideField();
+
+        // then
+        Assertions.assertThat(values.get("RESOURCE_ID")).isNotNull().isEqualTo("android.R.id.list");
+        Assertions.assertThat(values.get("RESOURCE_TYPE")).isNotNull().isEqualTo("List");
+        Assertions.assertThat(values.get("RESOURCE_NAME")).isNotNull().isEqualTo("list");
+    }
 }

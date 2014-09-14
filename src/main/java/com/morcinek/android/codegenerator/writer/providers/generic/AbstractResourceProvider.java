@@ -16,7 +16,12 @@ public abstract class AbstractResourceProvider implements ResourceProvider {
     }
 
     protected String getResourceName() {
-        return StringUtils.uncapitalize(resource.getResourceType().getClassName());
+        String idName = resource.getResourceId().getName();
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String word : idName.split("_")) {
+            stringBuilder.append(StringUtils.capitalize(word));
+        }
+        return StringUtils.uncapitalize(stringBuilder.toString());
     }
 
     protected String getResourceId() {
