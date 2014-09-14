@@ -16,7 +16,15 @@ public class ClassNameBuilder implements CodeBuilder {
 
     @Override
     public String builtString() {
-        return StringUtils.capitalize(fileName) + "Activity";
+        return getResourceName(fileName) + "Activity";
+    }
+
+    private String getResourceName(String fileName) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String word : fileName.split("_")) {
+            stringBuilder.append(StringUtils.capitalize(word));
+        }
+        return stringBuilder.toString();
     }
 
     @Override
