@@ -1,10 +1,15 @@
 package com.morcinek.android.codegenerator.writer.providers;
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import com.morcinek.android.codegenerator.extractor.model.Resource;
 import com.morcinek.android.codegenerator.extractor.model.ResourceType;
 import com.morcinek.android.codegenerator.writer.providers.generic.ResourceProvider;
 import com.morcinek.android.codegenerator.writer.providers.resources.ButtonProvider;
-import com.morcinek.android.codegenerator.writer.providers.resources.CheckBoxProvider;
+import com.morcinek.android.codegenerator.writer.providers.resources.DefaultProvider;
+import com.morcinek.android.codegenerator.writer.providers.resources.GetterProvider;
+
+import java.util.HashSet;
 
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
@@ -12,11 +17,15 @@ import com.morcinek.android.codegenerator.writer.providers.resources.CheckBoxPro
 public class ResourceProvidersFactory {
 
     public ResourceProvider getResourceProvider(Resource resource) {
-        if (resource.getResourceType().equals(new ResourceType("Button"))) {
+        if (isApplicable(resource, "Button", "ImageButton")) {
             return new ButtonProvider(resource);
-        } else if (resource.getResourceType().equals(new ResourceType("CheckBox"))) {
-            return new CheckBoxProvider(resource);
+        } else if (isApplicable(resource, "CheckBox", "EditText", "View")) {
+            return new GetterProvider(resource);
         }
-        return null;
+        return new DefaultProvider(resource);
+    }
+
+    private boolean isApplicable(Resource resource, String... resourcesNames) {
+        return Lists.newArrayList(resourcesNames).contains(resource.getResourceType().getFullName());
     }
 }

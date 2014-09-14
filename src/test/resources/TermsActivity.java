@@ -27,4 +27,5 @@ public class TermsActivity extends Activity implements OnClickListener {
         return (CheckBox) findViewById(R.id.accepts_terms);
     }
 
+
 }

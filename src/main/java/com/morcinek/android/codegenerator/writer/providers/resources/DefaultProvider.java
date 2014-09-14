@@ -9,9 +9,9 @@ import java.util.Set;
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
  */
-public class CheckBoxProvider extends AbstractResourceProvider {
+public class DefaultProvider extends AbstractResourceProvider {
 
-    public CheckBoxProvider(Resource resource) {
+    public DefaultProvider(Resource resource) {
         super(resource);
     }
 
@@ -22,16 +22,16 @@ public class CheckBoxProvider extends AbstractResourceProvider {
 
     @Override
     public Set<String> provideAssignment() {
-        return null;
+        return Sets.newHashSet("");
     }
 
     @Override
     public Set<String> provideField() {
-        return null;
+        return Sets.newHashSet("");
     }
 
     @Override
     public Set<String> provideMethod() {
-        return Sets.newHashSet("Getter");
+        return null;
     }
 }

@@ -13,7 +13,8 @@ public class ResourceId {
         this.name = name;
     }
 
-    public void setNamespace(String namespace) {
+    public ResourceId(String name, String namespace) {
+        this.name = name;
         this.namespace = namespace;
     }
 

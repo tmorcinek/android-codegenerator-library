@@ -69,9 +69,7 @@ public class ButtonProviderTest {
     @Test
     public void provideValuesNamespaceIdTest() throws Exception {
         // given
-        ResourceId resourceId = new ResourceId("list");
-        resourceId.setNamespace("android");
-        resourceProvider = new ButtonProvider(new Resource(resourceId, new ResourceType("List")));
+        resourceProvider = new ButtonProvider(new Resource(new ResourceId("list", "android"), new ResourceType("List")));
 
         // when
         Map<String, String> values = resourceProvider.provideValues();

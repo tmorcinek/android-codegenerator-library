@@ -34,7 +34,6 @@ public class MethodsBuilder extends ResourceCodeBuilder {
                 stringBuilder.append(templateManager.getResult());
             }
         }
-
     }
 
     private StringBuilder getStringBuilder(String method) {

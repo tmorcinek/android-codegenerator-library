@@ -22,10 +22,7 @@ public class ResourceIdExtractor implements StringExtractor<ResourceId> {
     @Override
     public ResourceId extractFromString(String idAttribute) {
         IdAttributeUnion attributeUnion = new IdAttributeUnion(idAttribute);
-
-        ResourceId resourceId = new ResourceId(attributeUnion.name);
-        resourceId.setNamespace(getNamespace(attributeUnion.prefix));
-        return resourceId;
+        return new ResourceId(attributeUnion.name, getNamespace(attributeUnion.prefix));
     }
 
     private String getNamespace(String prefix) {

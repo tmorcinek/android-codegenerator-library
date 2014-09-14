@@ -52,4 +52,23 @@ public class CodeWriterTest {
         String expectedCode = templatesProvider.provideTemplateForName("TermsActivity.java");
         Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
     }
+
+    @Test
+    public void produceFormActivityCodeTest() throws Exception {
+        // given
+        List<Resource> resources = Lists.newArrayList(
+                new Resource(new ResourceId("button"), new ResourceType("ImageButton")),
+                new Resource(new ResourceId("edit_text_name"), new ResourceType("EditText")),
+                new Resource(new ResourceId("edit_text_city"), new ResourceType("EditText")),
+                new Resource(new ResourceId("header_text"), new ResourceType("TextView")),
+                new Resource(new ResourceId("list","android"), new ResourceType("List"))
+        );
+
+        // when
+        String generatedCode = codeWriter.produceJavaCode(resources, "form");
+
+        // then
+        String expectedCode = templatesProvider.provideTemplateForName("FormActivity.java");
+        Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
+    }
 }
