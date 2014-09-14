@@ -10,27 +10,27 @@ import java.util.Map;
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
  */
-public class FieldsBuilder extends ResourceCodeBuilder {
+public class AssignmentsBuilder extends ResourceCodeBuilder {
 
     private StringBuilder stringBuilder;
 
     private String template;
 
-    public FieldsBuilder(List<ResourceProvider> resourceProviders, TemplatesProvider templatesProvider) {
+    public AssignmentsBuilder(List<ResourceProvider> resourceProviders, TemplatesProvider templatesProvider) {
         super(resourceProviders, templatesProvider);
     }
 
     @Override
     protected void initializeFields() {
         stringBuilder = new StringBuilder();
-        template = templatesProvider.provideTemplateForName("Field_template");
+        template = templatesProvider.provideTemplateForName("Assignment_template");
     }
 
     @Override
     protected void processResourceProvider(ResourceProvider resourceProvider) {
         TemplateManager templateManager = new TemplateManager(template);
-        if (resourceProvider.provideField() != null) {
-            Map<String, String> stringStringMap = resourceProvider.provideField();
+        if (resourceProvider.provideAssignment() != null) {
+            Map<String, String> stringStringMap = resourceProvider.provideAssignment();
             for (String key : stringStringMap.keySet()) {
                 templateManager.addTemplateValue(key, stringStringMap.get(key));
             }
@@ -45,6 +45,6 @@ public class FieldsBuilder extends ResourceCodeBuilder {
 
     @Override
     public String getKey() {
-        return "FIELDS";
+        return "ASSIGNMENTS";
     }
 }
