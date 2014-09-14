@@ -32,14 +32,23 @@ public class CodeGeneratorTest {
     }
 
     @Test
-    public void viewPagerProduceCode() throws Exception {
-
+    public void viewPagerProduceCodeTest() throws Exception {
         // given
         // when
         String producedCode = produceCodeFromFilePath("layouts/view_pager.xml");
 
         // then
         Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/ViewPagerActivity.java"));
+    }
+
+    @Test
+    public void searchListProduceCodeTest() throws Exception {
+        // given
+        // when
+        String producedCode = produceCodeFromFilePath("layouts/search_list.xml");
+
+        // then
+        Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/SearchListActivity.java"));
     }
 
     private InputStream getStreamFromResource(String name) {
