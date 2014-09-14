@@ -1,12 +1,18 @@
 package com.morcinek.android.codegenerator.writer.builders.resources;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 import com.morcinek.android.codegenerator.writer.providers.generic.ResourceProvider;
 import com.morcinek.android.codegenerator.writer.templates.ResourceTemplatesProvider;
 import org.fest.assertions.Assertions;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import java.util.List;
+import java.util.Map;
+
+import static org.mockito.Mockito.when;
 
 public class MethodsBuilderTest {
 
@@ -29,4 +35,66 @@ public class MethodsBuilderTest {
         // then
         Assertions.assertThat(value).isNotNull().isEqualTo("");
     }
+
+    @Test
+    public void builtOnClickListenerMethodString() throws Exception {
+        // given
+        methodsBuilder = provideMethodsBuilder(Lists.newArrayList(getMockResourceProvider("done_button", "OnClickListener")));
+
+        // when
+        String value = methodsBuilder.builtString();
+
+        // then
+        Assertions.assertThat(value).isNotNull().isEqualTo(
+                "    @Override\n" +
+                        "    public void onClick(View view) {\n" +
+                        "        switch (view.getId()) {\n" +
+                        "            case R.id.done_button:\n" +
+                        "                //TODO implement\n" +
+                        "                break;\n" +
+                        "\n" +
+                        "        }\n" +
+                        "    }\n" +
+                        "\n"
+        );
+    }
+
+    @Test
+    public void builtOnClickListenerMethodWithTwoButtonsString() throws Exception {
+        // given
+        methodsBuilder = provideMethodsBuilder(Lists.newArrayList(
+                        getMockResourceProvider("cancel_button", "OnClickListener"),
+                        getMockResourceProvider("exit_button", "OnClickListener"))
+        );
+
+        // when
+        String value = methodsBuilder.builtString();
+
+        // then
+        Assertions.assertThat(value).isNotNull().isEqualTo(
+                "    @Override\n" +
+                        "    public void onClick(View view) {\n" +
+                        "        switch (view.getId()) {\n" +
+                        "            case R.id.cancel_button:\n" +
+                        "                //TODO implement\n" +
+                        "                break;\n" +
+                        "            case R.id.exit_button:\n" +
+                        "                //TODO implement\n" +
+                        "                break;\n" +
+                        "\n" +
+                        "        }\n" +
+                        "    }\n" +
+                        "\n"
+        );
+    }
+
+    private ResourceProvider getMockResourceProvider(String resourceId, String methodName) {
+        ResourceProvider resourceProvider = Mockito.mock(ResourceProvider.class);
+        Map<String, String> treeMap = Maps.newTreeMap();
+        treeMap.put("RESOURCE_ID", "R.id." + resourceId);
+        when(resourceProvider.provideMethodParams()).thenReturn(treeMap);
+        when(resourceProvider.provideInterface()).thenReturn(Sets.newHashSet(methodName));
+        return resourceProvider;
+    }
+
 }
