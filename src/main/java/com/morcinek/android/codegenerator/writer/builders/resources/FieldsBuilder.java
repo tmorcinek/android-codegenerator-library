@@ -29,8 +29,8 @@ public class FieldsBuilder extends ResourceCodeBuilder {
     @Override
     protected void processResourceProvider(ResourceProvider resourceProvider) {
         TemplateManager templateManager = new TemplateManager(template);
-        if (resourceProvider.provideField() != null) {
-            Map<String, String> stringStringMap = resourceProvider.provideField();
+        if (resourceProvider.provideValues() != null) {
+            Map<String, String> stringStringMap = resourceProvider.provideValues();
             for (String key : stringStringMap.keySet()) {
                 templateManager.addTemplateValue(key, stringStringMap.get(key));
             }

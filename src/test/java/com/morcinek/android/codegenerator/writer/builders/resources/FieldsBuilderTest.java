@@ -2,7 +2,6 @@ package com.morcinek.android.codegenerator.writer.builders.resources;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
 import com.morcinek.android.codegenerator.writer.providers.generic.ResourceProvider;
 import com.morcinek.android.codegenerator.writer.templates.ResourceTemplatesProvider;
 import org.apache.commons.lang3.StringUtils;
@@ -10,12 +9,9 @@ import org.fest.assertions.Assertions;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
 public class FieldsBuilderTest {
@@ -72,7 +68,7 @@ public class FieldsBuilderTest {
         Map<String, String> treeMap = Maps.newHashMap();
         treeMap.put("RESOURCE_TYPE", StringUtils.capitalize(name));
         treeMap.put("RESOURCE_NAME", name);
-        when(resourceProvider.provideField()).thenReturn(treeMap);
+        when(resourceProvider.provideValues()).thenReturn(treeMap);
         return resourceProvider;
     }
 }

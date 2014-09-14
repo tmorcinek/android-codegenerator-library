@@ -30,7 +30,7 @@ public class MethodsBuilder extends ResourceCodeBuilder {
             for (String method : resourceProvider.provideMethod()) {
                 StringBuilder stringBuilder = getStringBuilder(method);
                 TemplateManager templateManager = getTemplateManagerForMethodCase(method);
-                templateManager.addTemplateValues(resourceProvider.provideMethodParams());
+                templateManager.addTemplateValues(resourceProvider.provideValues());
                 stringBuilder.append(templateManager.getResult());
             }
         }

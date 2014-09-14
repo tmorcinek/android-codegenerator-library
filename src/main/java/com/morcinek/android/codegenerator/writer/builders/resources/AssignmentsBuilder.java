@@ -29,12 +29,12 @@ public class AssignmentsBuilder extends ResourceCodeBuilder {
     @Override
     protected void processResourceProvider(ResourceProvider resourceProvider) {
         TemplateManager templateManager = new TemplateManager(template);
-        if (resourceProvider.provideAssignment() != null) {
-            Map<String, String> stringStringMap = resourceProvider.provideAssignment();
+//        if (resourceProvider.provideAssignment() != null) {
+            Map<String, String> stringStringMap = resourceProvider.provideValues();
             for (String key : stringStringMap.keySet()) {
                 templateManager.addTemplateValue(key, stringStringMap.get(key));
             }
-        }
+//        }
         stringBuilder.append(templateManager.getResult());
     }
 

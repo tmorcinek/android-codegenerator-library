@@ -8,15 +8,9 @@ import java.util.Set;
  */
 public interface ResourceProvider {
 
-    public Map<String, String> provideImport();
+    public Map<String, String> provideValues();
 
     public Set<String> provideInterface();
 
-    public Map<String, String> provideField();
-
-    public Map<String, String> provideAssignment();
-
     public Set<String> provideMethod();
-
-    public Map<String, String> provideMethodParams();
 }

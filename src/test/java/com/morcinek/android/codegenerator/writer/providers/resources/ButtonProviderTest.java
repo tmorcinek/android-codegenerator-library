@@ -10,8 +10,6 @@ import org.junit.Test;
 
 import java.util.Map;
 
-import static org.junit.Assert.*;
-
 public class ButtonProviderTest {
 
     private ResourceProvider resourceProvider;
@@ -22,22 +20,17 @@ public class ButtonProviderTest {
     }
 
     @Test
-    public void provideImportTest() throws Exception {
-        Assertions.assertThat(resourceProvider.provideImport()).isNull();
-    }
-
-    @Test
     public void provideInterfaceTest() throws Exception {
         Assertions.assertThat(resourceProvider.provideInterface()).hasSize(1).contains("OnClickListener");
     }
 
     @Test
-    public void provideFieldSimpleTest() throws Exception {
+    public void provideValuesSimpleTest() throws Exception {
         // given
         resourceProvider = new ButtonProvider(new Resource(new ResourceId("button"), new ResourceType("Button")));
 
         // when
-        Map<String, String> values = resourceProvider.provideField();
+        Map<String, String> values = resourceProvider.provideValues();
 
         // then
         Assertions.assertThat(values.get("RESOURCE_ID")).isNotNull().isEqualTo("R.id.button");
@@ -46,12 +39,12 @@ public class ButtonProviderTest {
     }
 
     @Test
-    public void provideFieldAdvancedTest() throws Exception {
+    public void provideValuesAdvancedTest() throws Exception {
         // given
         resourceProvider = new ButtonProvider(new Resource(new ResourceId("done_button"), new ResourceType("Button")));
 
         // when
-        Map<String, String> values = resourceProvider.provideField();
+        Map<String, String> values = resourceProvider.provideValues();
 
         // then
         Assertions.assertThat(values.get("RESOURCE_ID")).isNotNull().isEqualTo("R.id.done_button");
@@ -65,7 +58,7 @@ public class ButtonProviderTest {
         resourceProvider = new ButtonProvider(new Resource(new ResourceId("done_job_button"), new ResourceType("Button")));
 
         // when
-        Map<String, String> values = resourceProvider.provideField();
+        Map<String, String> values = resourceProvider.provideValues();
 
         // then
         Assertions.assertThat(values.get("RESOURCE_ID")).isNotNull().isEqualTo("R.id.done_job_button");
@@ -74,14 +67,14 @@ public class ButtonProviderTest {
     }
 
     @Test
-    public void provideFieldNamespaceIdTest() throws Exception {
+    public void provideValuesNamespaceIdTest() throws Exception {
         // given
         ResourceId resourceId = new ResourceId("list");
         resourceId.setNamespace("android");
         resourceProvider = new ButtonProvider(new Resource(resourceId, new ResourceType("List")));
 
         // when
-        Map<String, String> values = resourceProvider.provideField();
+        Map<String, String> values = resourceProvider.provideValues();
 
         // then
         Assertions.assertThat(values.get("RESOURCE_ID")).isNotNull().isEqualTo("android.R.id.list");

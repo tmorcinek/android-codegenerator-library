@@ -93,7 +93,7 @@ public class MethodsBuilderTest {
         treeMap.put("RESOURCE_ID", "R.id.edit_text_name");
         treeMap.put("RESOURCE_TYPE", "EditText");
         treeMap.put("RESOURCE_NAME_CAPITALIZED", "EditTextName");
-        when(resourceProvider.provideMethodParams()).thenReturn(treeMap);
+        when(resourceProvider.provideValues()).thenReturn(treeMap);
         when(resourceProvider.provideMethod()).thenReturn(Sets.newHashSet("Getter"));
 
         // given
@@ -128,7 +128,7 @@ public class MethodsBuilderTest {
         ResourceProvider resourceProvider = Mockito.mock(ResourceProvider.class);
         Map<String, String> treeMap = Maps.newHashMap();
         treeMap.put("RESOURCE_ID", "R.id." + resourceId);
-        when(resourceProvider.provideMethodParams()).thenReturn(treeMap);
+        when(resourceProvider.provideValues()).thenReturn(treeMap);
         when(resourceProvider.provideMethod()).thenReturn(Sets.newHashSet(methodName));
         return resourceProvider;
     }

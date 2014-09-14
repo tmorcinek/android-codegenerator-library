@@ -74,7 +74,7 @@ public class AssignmentsBuilderTest {
         treeMap.put("RESOURCE_TYPE", StringUtils.capitalize(name));
         treeMap.put("RESOURCE_ID", "R.id." + name);
         treeMap.put("RESOURCE_ASSIGNMENT", name + ".setOnClickListener(this);\n");
-        when(resourceProvider.provideAssignment()).thenReturn(treeMap);
+        when(resourceProvider.provideValues()).thenReturn(treeMap);
         return resourceProvider;
     }
 }
