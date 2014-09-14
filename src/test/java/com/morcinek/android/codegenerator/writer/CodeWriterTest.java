@@ -45,8 +45,8 @@ public class CodeWriterTest {
                         "        super.onCreate(savedInstanceState);\n" +
                         "        setContentView(R.layout.main);\n" +
                         "\n" +
-                        "        button = (Button) findViewById(R.id.button);\n" +
-                        "        button.setOnClickListener(this);\n" +
+                        "        findViewById(R.id.button).setOnClickListener(this);\n" +
+                        "\n" +
                         "    }\n" +
                         "\n" +
                         "    @Override\n" +
