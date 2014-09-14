@@ -63,6 +63,9 @@ public class MethodsBuilder extends ResourceCodeBuilder {
             stringBuilder.append(templateManager.getResult());
             stringBuilder.append("\n");
         }
+        if (stringBuilder.length() > 0) {
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        }
         return stringBuilder.toString();
     }
 

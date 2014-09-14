@@ -54,8 +54,7 @@ public class MethodsBuilderTest {
                         "                break;\n" +
                         "\n" +
                         "        }\n" +
-                        "    }\n" +
-                        "\n"
+                        "    }\n"
         );
     }
 
@@ -83,8 +82,7 @@ public class MethodsBuilderTest {
                         "                break;\n" +
                         "\n" +
                         "        }\n" +
-                        "    }\n" +
-                        "\n"
+                        "    }\n"
         );
     }
 
@@ -122,7 +120,6 @@ public class MethodsBuilderTest {
                         "    private EditText getEditTextName(){\n" +
                         "        return (EditText) findViewById(R.id.edit_text_name);\n" +
                         "    }" +
-                        "\n" +
                         "\n"
         );
     }

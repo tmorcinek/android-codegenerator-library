@@ -49,7 +49,17 @@ public class CodeWriterTest {
                         "        button.setOnClickListener(this);\n" +
                         "    }\n" +
                         "\n" +
+                        "    @Override\n" +
+                        "    public void onClick(View view) {\n" +
+                        "        switch (view.getId()) {\n" +
+                        "            case R.id.button:\n" +
+                        "                //TODO implement\n" +
+                        "                break;\n" +
                         "\n" +
-                        "}\n");
+                        "        }\n" +
+                        "    }\n" +
+                        "\n" +
+                        "}\n"
+        );
     }
 }
