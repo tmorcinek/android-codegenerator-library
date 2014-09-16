@@ -6,7 +6,7 @@
 
     <groupId>com.morcinek.android.codegenerator</groupId>
     <artifactId>codegenerator-library</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <dependencies>
         <dependency>
