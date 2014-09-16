@@ -32,7 +32,7 @@ public class CodeWriter {
     public String produceJavaCode(List<Resource> resources, String fileName) {
         buildersCollection.registerCodeBuilders(getResourceProviders(resources), fileName);
 
-        TemplateManager fileTemplate = new TemplateManager(templatesProvider.provideTemplateForName("File_template"));
+        TemplateManager fileTemplate = new TemplateManager(templatesProvider.provideTemplateForName("Activity_template"));
         Map<String, CodeBuilder> builderMap = buildersCollection.getBuilderMap();
         for (String key : builderMap.keySet()) {
             fileTemplate.addTemplateValue(key, builderMap.get(key).builtString());
