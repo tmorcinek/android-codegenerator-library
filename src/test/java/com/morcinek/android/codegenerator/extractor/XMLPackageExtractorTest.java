@@ -9,7 +9,7 @@ import java.io.InputStream;
 
 import static org.junit.Assert.*;
 
-public class PackageExtractorTest {
+public class XMLPackageExtractorTest {
 
     private InputStreamProvider inputStreamProvider = new InputStreamProvider();
 

@@ -4,6 +4,7 @@ import com.morcinek.android.codegenerator.extractor.XMLResourceExtractor;
 import com.morcinek.android.codegenerator.extractor.string.FileNameExtractor;
 import com.morcinek.android.codegenerator.extractor.string.ResourceIdExtractor;
 import com.morcinek.android.codegenerator.extractor.string.ResourceTypeExtractor;
+import com.morcinek.android.codegenerator.util.InputStreamProvider;
 import com.morcinek.android.codegenerator.writer.CodeWriter;
 import com.morcinek.android.codegenerator.writer.providers.ResourceProvidersFactory;
 import com.morcinek.android.codegenerator.writer.templates.ResourceTemplatesProvider;
@@ -23,6 +24,8 @@ import static org.junit.Assert.*;
 public class CodeGeneratorTest {
 
     private CodeGenerator codeGenerator;
+
+    private InputStreamProvider inputStreamProvider = new InputStreamProvider();
 
     private TemplatesProvider templatesProvider = new ResourceTemplatesProvider();
 
@@ -61,11 +64,7 @@ public class CodeGeneratorTest {
         Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/CreateGameActivity.java"));
     }
 
-    private InputStream getStreamFromResource(String name) {
-        return getClass().getResourceAsStream("/" + name);
-    }
-
     private String produceCodeFromFilePath(String filePath) throws ParserConfigurationException, SAXException, XPathExpressionException, IOException {
-        return codeGenerator.produceCode(getStreamFromResource(filePath), filePath);
+        return codeGenerator.produceCode(inputStreamProvider.getStreamFromResource(filePath), filePath);
     }
 }
