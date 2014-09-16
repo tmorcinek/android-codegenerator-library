@@ -1,6 +1,3 @@
-package ;
-
-
 public class FormActivity extends Activity implements OnClickListener {
 
     private TextView headerText;

@@ -64,6 +64,38 @@ public class CodeGeneratorTest {
         Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/CreateGameActivity.java"));
     }
 
+    @Test
+    public void appendPackageTest() throws Exception {
+        // given
+        String packageName = "com.morcinek.grouplaying";
+        String body = "private class MainActivity {}";
+
+        // when
+        String appendPackage = codeGenerator.appendPackage(packageName, body);
+
+        // then
+        Assertions.assertThat(appendPackage).isNotNull().isEqualTo(
+                "package com.morcinek.grouplaying;\n" +
+                        "\n" +
+                        "private class MainActivity {}"
+        );
+    }
+
+    @Test
+    public void appendEmptyPackageTest() throws Exception {
+        // given
+        String packageName = "";
+        String body = "private class MainActivity {}";
+
+        // when
+        String appendPackage = codeGenerator.appendPackage(packageName, body);
+
+        // then
+        Assertions.assertThat(appendPackage).isNotNull().isEqualTo(
+                        "private class MainActivity {}"
+        );
+    }
+
     private String produceCodeFromFilePath(String filePath) throws ParserConfigurationException, SAXException, XPathExpressionException, IOException {
         return codeGenerator.produceCode(inputStreamProvider.getStreamFromResource(filePath), filePath);
     }

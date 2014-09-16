@@ -4,6 +4,7 @@ import com.morcinek.android.codegenerator.extractor.ResourceExtractor;
 import com.morcinek.android.codegenerator.extractor.model.Resource;
 import com.morcinek.android.codegenerator.extractor.string.FileNameExtractor;
 import com.morcinek.android.codegenerator.writer.CodeWriter;
+import com.morcinek.android.codegenerator.writer.builders.file.PackageBuilder;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -32,5 +33,12 @@ public class CodeGenerator {
         List<Resource> resources = resourceExtractor.extractResourceObjectsFromStream(inputStream);
         String filename = fileNameExtractor.extractFromString(filePath);
         return codeWriter.produceJavaCode(resources, filename);
+    }
+
+    public String appendPackage(String packageName, String generateCode) {
+        if (!packageName.isEmpty()) {
+            return new PackageBuilder(packageName).builtString() + generateCode;
+        }
+        return generateCode;
     }
 }

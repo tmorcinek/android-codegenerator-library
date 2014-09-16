@@ -1,6 +1,3 @@
-package ;
-
-
 public class TermsActivity extends Activity implements OnClickListener {
 
 

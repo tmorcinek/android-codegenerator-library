@@ -1,6 +1,3 @@
-package ;
-
-
 public class SearchListActivity extends Activity  {
 
     private ListView list;

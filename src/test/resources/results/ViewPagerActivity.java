@@ -1,6 +1,3 @@
-package ;
-
-
 public class ViewPagerActivity extends Activity  {
 
     private ViewPager pager;

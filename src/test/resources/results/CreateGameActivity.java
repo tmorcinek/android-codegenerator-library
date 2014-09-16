@@ -1,6 +1,3 @@
-package ;
-
-
 public class CreateGameActivity extends Activity  {
 
 
