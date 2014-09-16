@@ -26,7 +26,7 @@ public class CodeGeneratorTest {
 
     @Before
     public void setUp() throws Exception {
-        codeGenerator = new CodeGenerator(XMLResourceExtractor.createResourceExtractor(), new FileNameExtractor(), new TemplateCodeGenerator(new ResourceProvidersFactory(), new ResourceTemplatesProvider()));
+        codeGenerator = new CodeGenerator(XMLResourceExtractor.createResourceExtractor(), new FileNameExtractor(), new TemplateCodeGenerator("Activity_template", new ResourceProvidersFactory(), new ResourceTemplatesProvider()));
     }
 
     @Test

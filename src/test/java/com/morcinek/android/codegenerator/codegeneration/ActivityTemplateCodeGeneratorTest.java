@@ -13,7 +13,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-public class TemplateCodeGeneratorTest {
+public class ActivityTemplateCodeGeneratorTest {
 
     private TemplatesProvider templatesProvider = new ResourceTemplatesProvider();
 
@@ -21,7 +21,7 @@ public class TemplateCodeGeneratorTest {
 
     @Before
     public void setUp() throws Exception {
-        templateCodeGenerator = new TemplateCodeGenerator(new ResourceProvidersFactory(), new ResourceTemplatesProvider());
+        templateCodeGenerator = new TemplateCodeGenerator("Activity_template", new ResourceProvidersFactory(), new ResourceTemplatesProvider());
     }
 
     @Test
@@ -61,7 +61,7 @@ public class TemplateCodeGeneratorTest {
                 new Resource(new ResourceId("edit_text_name"), new ResourceType("EditText")),
                 new Resource(new ResourceId("edit_text_city"), new ResourceType("EditText")),
                 new Resource(new ResourceId("header_text"), new ResourceType("TextView")),
-                new Resource(new ResourceId("list","android"), new ResourceType("List"))
+                new Resource(new ResourceId("list", "android"), new ResourceType("List"))
         );
 
         // when
