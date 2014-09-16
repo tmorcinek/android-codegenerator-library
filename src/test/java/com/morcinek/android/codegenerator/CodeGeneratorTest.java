@@ -92,8 +92,32 @@ public class CodeGeneratorTest {
 
         // then
         Assertions.assertThat(appendPackage).isNotNull().isEqualTo(
-                        "private class MainActivity {}"
+                "private class MainActivity {}"
         );
+    }
+
+    @Test
+    public void getJavaFileNameTest() throws Exception {
+        // given
+        String filename = "this_file.xml";
+
+        // when
+        String javaFileName = codeGenerator.getJavaFileName(filename);
+
+        // then
+        Assertions.assertThat(javaFileName).isNotNull().isEqualTo("ThisFileActivity.java");
+    }
+
+    @Test
+    public void getJavaFileNamePathTest() throws Exception {
+        // given
+        String filename = "this/is/path/to/this_file.xml";
+
+        // when
+        String javaFileName = codeGenerator.getJavaFileName(filename);
+
+        // then
+        Assertions.assertThat(javaFileName).isNotNull().isEqualTo("ThisFileActivity.java");
     }
 
     private String produceCodeFromFilePath(String filePath) throws ParserConfigurationException, SAXException, XPathExpressionException, IOException {
