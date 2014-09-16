@@ -3,9 +3,9 @@ package com.morcinek.android.codegenerator;
 import com.morcinek.android.codegenerator.extractor.ResourceExtractor;
 import com.morcinek.android.codegenerator.extractor.model.Resource;
 import com.morcinek.android.codegenerator.extractor.string.FileNameExtractor;
-import com.morcinek.android.codegenerator.writer.CodeWriter;
-import com.morcinek.android.codegenerator.writer.builders.file.ClassNameBuilder;
-import com.morcinek.android.codegenerator.writer.builders.file.PackageBuilder;
+import com.morcinek.android.codegenerator.codegeneration.TemplateCodeGenerator;
+import com.morcinek.android.codegenerator.codegeneration.builders.file.ClassNameBuilder;
+import com.morcinek.android.codegenerator.codegeneration.builders.file.PackageBuilder;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -23,18 +23,18 @@ public class CodeGenerator {
     private ResourceExtractor resourceExtractor;
     private FileNameExtractor fileNameExtractor;
 
-    private CodeWriter codeWriter;
+    private TemplateCodeGenerator templateCodeGenerator;
 
-    public CodeGenerator(ResourceExtractor resourceExtractor, FileNameExtractor fileNameExtractor, CodeWriter codeWriter) {
+    public CodeGenerator(ResourceExtractor resourceExtractor, FileNameExtractor fileNameExtractor, TemplateCodeGenerator templateCodeGenerator) {
         this.resourceExtractor = resourceExtractor;
         this.fileNameExtractor = fileNameExtractor;
-        this.codeWriter = codeWriter;
+        this.templateCodeGenerator = templateCodeGenerator;
     }
 
     public String produceCode(InputStream inputStream, String filePath) throws ParserConfigurationException, SAXException, XPathExpressionException, IOException {
         List<Resource> resources = resourceExtractor.extractResourceObjectsFromStream(inputStream);
         String filename = fileNameExtractor.extractFromString(filePath);
-        return codeWriter.produceJavaCode(resources, filename);
+        return templateCodeGenerator.generateCode(resources, filename);
     }
 
     public String appendPackage(String packageName, String generateCode) {

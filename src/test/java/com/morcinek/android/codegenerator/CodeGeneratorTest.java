@@ -2,13 +2,11 @@ package com.morcinek.android.codegenerator;
 
 import com.morcinek.android.codegenerator.extractor.XMLResourceExtractor;
 import com.morcinek.android.codegenerator.extractor.string.FileNameExtractor;
-import com.morcinek.android.codegenerator.extractor.string.ResourceIdExtractor;
-import com.morcinek.android.codegenerator.extractor.string.ResourceTypeExtractor;
 import com.morcinek.android.codegenerator.util.InputStreamProvider;
-import com.morcinek.android.codegenerator.writer.CodeWriter;
-import com.morcinek.android.codegenerator.writer.providers.ResourceProvidersFactory;
-import com.morcinek.android.codegenerator.writer.templates.ResourceTemplatesProvider;
-import com.morcinek.android.codegenerator.writer.templates.TemplatesProvider;
+import com.morcinek.android.codegenerator.codegeneration.TemplateCodeGenerator;
+import com.morcinek.android.codegenerator.codegeneration.providers.ResourceProvidersFactory;
+import com.morcinek.android.codegenerator.codegeneration.templates.ResourceTemplatesProvider;
+import com.morcinek.android.codegenerator.codegeneration.templates.TemplatesProvider;
 import org.fest.assertions.Assertions;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,9 +15,6 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathExpressionException;
 import java.io.IOException;
-import java.io.InputStream;
-
-import static org.junit.Assert.*;
 
 public class CodeGeneratorTest {
 
@@ -31,7 +26,7 @@ public class CodeGeneratorTest {
 
     @Before
     public void setUp() throws Exception {
-        codeGenerator = new CodeGenerator(XMLResourceExtractor.createResourceExtractor(), new FileNameExtractor(), new CodeWriter(new ResourceProvidersFactory(), new ResourceTemplatesProvider()));
+        codeGenerator = new CodeGenerator(XMLResourceExtractor.createResourceExtractor(), new FileNameExtractor(), new TemplateCodeGenerator(new ResourceProvidersFactory(), new ResourceTemplatesProvider()));
     }
 
     @Test
