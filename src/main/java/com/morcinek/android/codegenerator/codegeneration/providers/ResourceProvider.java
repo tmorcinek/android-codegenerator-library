@@ -1,4 +1,4 @@
-package com.morcinek.android.codegenerator.codegeneration.providers.generic;
+package com.morcinek.android.codegenerator.codegeneration.providers;
 
 import java.util.Map;
 import java.util.Set;

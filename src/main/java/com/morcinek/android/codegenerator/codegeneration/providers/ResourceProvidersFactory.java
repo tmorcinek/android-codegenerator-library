@@ -1,6 +1,6 @@
-package com.morcinek.android.codegenerator.codegeneration.providers.factories;
+package com.morcinek.android.codegenerator.codegeneration.providers;
 
-import com.morcinek.android.codegenerator.codegeneration.providers.generic.ResourceProvider;
+import com.morcinek.android.codegenerator.codegeneration.providers.ResourceProvider;
 import com.morcinek.android.codegenerator.extractor.model.Resource;
 
 /**

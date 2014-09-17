@@ -1,7 +1,7 @@
 package com.morcinek.android.codegenerator.codegeneration.builders.resources;
 
 import com.morcinek.android.codegenerator.codegeneration.builders.CodeBuilder;
-import com.morcinek.android.codegenerator.codegeneration.providers.generic.ResourceProvider;
+import com.morcinek.android.codegenerator.codegeneration.providers.ResourceProvider;
 import com.morcinek.android.codegenerator.codegeneration.templates.TemplatesProvider;
 
 import java.util.List;

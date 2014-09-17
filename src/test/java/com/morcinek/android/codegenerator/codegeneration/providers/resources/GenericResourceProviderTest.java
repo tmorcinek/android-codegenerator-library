@@ -3,14 +3,14 @@ package com.morcinek.android.codegenerator.codegeneration.providers.resources;
 import com.morcinek.android.codegenerator.extractor.model.Resource;
 import com.morcinek.android.codegenerator.extractor.model.ResourceId;
 import com.morcinek.android.codegenerator.extractor.model.ResourceType;
-import com.morcinek.android.codegenerator.codegeneration.providers.generic.ResourceProvider;
+import com.morcinek.android.codegenerator.codegeneration.providers.ResourceProvider;
 import org.fest.assertions.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Map;
 
-public class ButtonProviderTest {
+public class GenericResourceProviderTest {
 
     private ResourceProvider resourceProvider;
 

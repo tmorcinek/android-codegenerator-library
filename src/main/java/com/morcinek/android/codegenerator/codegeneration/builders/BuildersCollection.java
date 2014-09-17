@@ -7,7 +7,7 @@ import com.morcinek.android.codegenerator.codegeneration.builders.resources.Assi
 import com.morcinek.android.codegenerator.codegeneration.builders.resources.FieldsBuilder;
 import com.morcinek.android.codegenerator.codegeneration.builders.resources.InterfaceBuilder;
 import com.morcinek.android.codegenerator.codegeneration.builders.resources.MethodsBuilder;
-import com.morcinek.android.codegenerator.codegeneration.providers.generic.ResourceProvider;
+import com.morcinek.android.codegenerator.codegeneration.providers.ResourceProvider;
 import com.morcinek.android.codegenerator.codegeneration.templates.TemplatesProvider;
 
 import java.util.List;

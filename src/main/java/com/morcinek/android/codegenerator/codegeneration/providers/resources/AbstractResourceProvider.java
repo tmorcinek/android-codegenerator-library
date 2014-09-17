@@ -1,6 +1,7 @@
-package com.morcinek.android.codegenerator.codegeneration.providers.generic;
+package com.morcinek.android.codegenerator.codegeneration.providers.resources;
 
 import com.google.common.collect.Maps;
+import com.morcinek.android.codegenerator.codegeneration.providers.ResourceProvider;
 import com.morcinek.android.codegenerator.extractor.model.Resource;
 import com.morcinek.android.codegenerator.extractor.model.ResourceId;
 import org.apache.commons.lang3.StringUtils;

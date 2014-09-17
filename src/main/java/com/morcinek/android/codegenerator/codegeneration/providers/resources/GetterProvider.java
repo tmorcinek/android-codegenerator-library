@@ -2,7 +2,6 @@ package com.morcinek.android.codegenerator.codegeneration.providers.resources;
 
 import com.google.common.collect.Sets;
 import com.morcinek.android.codegenerator.extractor.model.Resource;
-import com.morcinek.android.codegenerator.codegeneration.providers.generic.AbstractResourceProvider;
 
 import java.util.Set;
 

@@ -1,12 +1,11 @@
-package com.morcinek.android.codegenerator.codegeneration.providers;
+package com.morcinek.android.codegenerator.codegeneration.providers.factories;
 
-import com.morcinek.android.codegenerator.codegeneration.providers.factories.ActivityResourceProvidersFactory;
-import com.morcinek.android.codegenerator.codegeneration.providers.factories.ResourceProvidersFactory;
+import com.morcinek.android.codegenerator.codegeneration.providers.ResourceProvider;
+import com.morcinek.android.codegenerator.codegeneration.providers.ResourceProvidersFactory;
+import com.morcinek.android.codegenerator.codegeneration.providers.resources.ButtonProvider;
 import com.morcinek.android.codegenerator.extractor.model.Resource;
 import com.morcinek.android.codegenerator.extractor.model.ResourceId;
 import com.morcinek.android.codegenerator.extractor.model.ResourceType;
-import com.morcinek.android.codegenerator.codegeneration.providers.generic.ResourceProvider;
-import com.morcinek.android.codegenerator.codegeneration.providers.resources.ButtonProvider;
 import org.fest.assertions.Assertions;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,7 +13,7 @@ import org.junit.Test;
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
  */
-public class ResourceProvidersFactoryTest {
+public class ActivityResourceProvidersFactoryTest {
 
     private ResourceProvidersFactory resourceProvidersFactory;
 
