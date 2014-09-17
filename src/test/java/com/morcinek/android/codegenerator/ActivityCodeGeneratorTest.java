@@ -1,12 +1,12 @@
 package com.morcinek.android.codegenerator;
 
+import com.morcinek.android.codegenerator.codegeneration.TemplateCodeGenerator;
 import com.morcinek.android.codegenerator.codegeneration.providers.factories.ActivityResourceProvidersFactory;
+import com.morcinek.android.codegenerator.codegeneration.templates.ResourceTemplatesProvider;
+import com.morcinek.android.codegenerator.codegeneration.templates.TemplatesProvider;
 import com.morcinek.android.codegenerator.extractor.XMLResourceExtractor;
 import com.morcinek.android.codegenerator.extractor.string.FileNameExtractor;
 import com.morcinek.android.codegenerator.util.InputStreamProvider;
-import com.morcinek.android.codegenerator.codegeneration.TemplateCodeGenerator;
-import com.morcinek.android.codegenerator.codegeneration.templates.ResourceTemplatesProvider;
-import com.morcinek.android.codegenerator.codegeneration.templates.TemplatesProvider;
 import org.fest.assertions.Assertions;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +16,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathExpressionException;
 import java.io.IOException;
 
-public class CodeGeneratorTest {
+public class ActivityCodeGeneratorTest {
 
     private CodeGenerator codeGenerator;
 

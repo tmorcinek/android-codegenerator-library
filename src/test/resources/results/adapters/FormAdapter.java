@@ -36,11 +36,11 @@ public class FormAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.form, null);
             ViewHolder viewHolder = new ViewHolder();
-        button = (ImageButton) findViewById(R.id.button);
-        editTextName = (EditText) findViewById(R.id.edit_text_name);
-        editTextCity = (EditText) findViewById(R.id.edit_text_city);
-        headerText = (TextView) findViewById(R.id.header_text);
-        list = (List) findViewById(android.R.id.list);
+            viewHolder.button = (ImageButton) convertView.findViewById(R.id.button);
+            viewHolder.editTextName = (EditText) convertView.findViewById(R.id.edit_text_name);
+            viewHolder.editTextCity = (EditText) convertView.findViewById(R.id.edit_text_city);
+            viewHolder.headerText = (TextView) convertView.findViewById(R.id.header_text);
+            viewHolder.list = (List) convertView.findViewById(android.R.id.list);
 
             convertView.setTag(viewHolder);
         }

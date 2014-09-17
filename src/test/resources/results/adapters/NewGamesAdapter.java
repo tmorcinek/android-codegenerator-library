@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-public class MainAdapter extends BaseAdapter {
+public class GameListItemAdapter extends BaseAdapter {
 
     private List<T> objects = new ArrayList<T>();
 
     private Context context;
     private LayoutInflater layoutInflater;
 
-    public MainAdapter(Context context) {
+    public GameListItemAdapter(Context context) {
         this.context = context;
         this.layoutInflater = LayoutInflater.from(context);
     }
@@ -34,9 +34,11 @@ public class MainAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = layoutInflater.inflate(R.layout.main, null);
+            convertView = layoutInflater.inflate(R.layout.game_list_item, null);
             ViewHolder viewHolder = new ViewHolder();
-            viewHolder.button = (Button) convertView.findViewById(R.id.button);
+            viewHolder.title = (TextView) convertView.findViewById(R.id.title);
+            viewHolder.description = (TextView) convertView.findViewById(R.id.description);
+            viewHolder.usersNumber = (TextView) convertView.findViewById(R.id.users_number);
 
             convertView.setTag(viewHolder);
         }
@@ -49,7 +51,9 @@ public class MainAdapter extends BaseAdapter {
     }
 
     protected class ViewHolder {
-    private Button button;
+    private TextView title;
+    private TextView description;
+    private TextView usersNumber;
 
     }
 }

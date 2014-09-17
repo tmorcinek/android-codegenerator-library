@@ -1,0 +1,1 @@
+            viewHolder.${RESOURCE_NAME} = (${RESOURCE_TYPE}) convertView.findViewById(${RESOURCE_ID});

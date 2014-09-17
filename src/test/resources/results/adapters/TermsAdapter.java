@@ -36,8 +36,8 @@ public class TermsAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.terms, null);
             ViewHolder viewHolder = new ViewHolder();
-        button = (Button) findViewById(R.id.button);
-        acceptsTerms = (CheckBox) findViewById(R.id.accepts_terms);
+            viewHolder.button = (Button) convertView.findViewById(R.id.button);
+            viewHolder.acceptsTerms = (CheckBox) convertView.findViewById(R.id.accepts_terms);
 
             convertView.setTag(viewHolder);
         }
