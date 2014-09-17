@@ -1,0 +1,13 @@
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(${LAYOUT}, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+${ASSIGNMENTS}
+        }
+        return super.onOptionsItemSelected(item);
+    }
