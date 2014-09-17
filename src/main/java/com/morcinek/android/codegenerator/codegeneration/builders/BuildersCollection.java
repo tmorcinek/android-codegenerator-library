@@ -2,7 +2,7 @@ package com.morcinek.android.codegenerator.codegeneration.builders;
 
 import com.google.common.collect.Maps;
 import com.morcinek.android.codegenerator.codegeneration.builders.file.ClassNameBuilder;
-import com.morcinek.android.codegenerator.codegeneration.builders.file.LayoutBuilder;
+import com.morcinek.android.codegenerator.codegeneration.builders.file.ResourceNameBuilder;
 import com.morcinek.android.codegenerator.codegeneration.builders.resources.AssignmentsBuilder;
 import com.morcinek.android.codegenerator.codegeneration.builders.resources.FieldsBuilder;
 import com.morcinek.android.codegenerator.codegeneration.builders.resources.InterfaceBuilder;
@@ -32,7 +32,7 @@ public class BuildersCollection {
 
     public void registerCodeBuilders(List<ResourceProvider> resourceProviders, String fileName) {
         registerCodeBuilder(builderMap, new ClassNameBuilder(fileName));
-        registerCodeBuilder(builderMap, new LayoutBuilder(fileName));
+        registerCodeBuilder(builderMap, new ResourceNameBuilder(fileName));
         registerCodeBuilder(builderMap, new InterfaceBuilder(resourceProviders, templatesProvider));
         registerCodeBuilder(builderMap, new FieldsBuilder(resourceProviders, templatesProvider));
         registerCodeBuilder(builderMap, new AssignmentsBuilder(resourceProviders, templatesProvider));

@@ -34,7 +34,7 @@ public class ${CLASS_NAME}Adapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = layoutInflater.inflate(${LAYOUT}, null);
+            convertView = layoutInflater.inflate(R.layout.${RESOURCE_NAME}, null);
             ViewHolder viewHolder = new ViewHolder();
 ${ASSIGNMENTS}
             convertView.setTag(viewHolder);

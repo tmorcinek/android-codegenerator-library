@@ -1,6 +1,6 @@
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(${LAYOUT}, menu);
+        getMenuInflater().inflate(R.menu.${RESOURCE_NAME}, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

@@ -4,7 +4,7 @@ ${FIELDS}
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(${LAYOUT});
+        setContentView(R.layout.${RESOURCE_NAME});
 
 ${ASSIGNMENTS}
     }

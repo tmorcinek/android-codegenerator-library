@@ -5,21 +5,21 @@ import com.morcinek.android.codegenerator.codegeneration.builders.CodeBuilder;
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
  */
-public class LayoutBuilder implements CodeBuilder {
+public class ResourceNameBuilder implements CodeBuilder {
 
     private String fileName;
 
-    public LayoutBuilder(String fileName) {
+    public ResourceNameBuilder(String fileName) {
         this.fileName = fileName;
     }
 
     @Override
     public String builtString() {
-        return "R.layout." + fileName;
+        return fileName;
     }
 
     @Override
     public String getKey() {
-        return "LAYOUT";
+        return "RESOURCE_NAME";
     }
 }
