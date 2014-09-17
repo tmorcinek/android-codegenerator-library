@@ -1,10 +1,10 @@
 package com.morcinek.android.codegenerator;
 
+import com.morcinek.android.codegenerator.codegeneration.providers.factories.ActivityResourceProvidersFactory;
 import com.morcinek.android.codegenerator.extractor.XMLResourceExtractor;
 import com.morcinek.android.codegenerator.extractor.string.FileNameExtractor;
 import com.morcinek.android.codegenerator.util.InputStreamProvider;
 import com.morcinek.android.codegenerator.codegeneration.TemplateCodeGenerator;
-import com.morcinek.android.codegenerator.codegeneration.providers.ResourceProvidersFactory;
 import com.morcinek.android.codegenerator.codegeneration.templates.ResourceTemplatesProvider;
 import com.morcinek.android.codegenerator.codegeneration.templates.TemplatesProvider;
 import org.fest.assertions.Assertions;
@@ -26,7 +26,7 @@ public class CodeGeneratorTest {
 
     @Before
     public void setUp() throws Exception {
-        codeGenerator = new CodeGenerator(XMLResourceExtractor.createResourceExtractor(), new FileNameExtractor(), new TemplateCodeGenerator("Activity_template", new ResourceProvidersFactory(), new ResourceTemplatesProvider()));
+        codeGenerator = new CodeGenerator(XMLResourceExtractor.createResourceExtractor(), new FileNameExtractor(), new TemplateCodeGenerator("Activity_template", new ActivityResourceProvidersFactory(), new ResourceTemplatesProvider()));
     }
 
     @Test

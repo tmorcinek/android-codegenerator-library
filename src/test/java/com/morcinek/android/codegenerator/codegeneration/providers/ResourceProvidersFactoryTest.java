@@ -1,5 +1,7 @@
 package com.morcinek.android.codegenerator.codegeneration.providers;
 
+import com.morcinek.android.codegenerator.codegeneration.providers.factories.ActivityResourceProvidersFactory;
+import com.morcinek.android.codegenerator.codegeneration.providers.factories.ResourceProvidersFactory;
 import com.morcinek.android.codegenerator.extractor.model.Resource;
 import com.morcinek.android.codegenerator.extractor.model.ResourceId;
 import com.morcinek.android.codegenerator.extractor.model.ResourceType;
@@ -18,7 +20,7 @@ public class ResourceProvidersFactoryTest {
 
     @Before
     public void setUp() throws Exception {
-        resourceProvidersFactory = new ResourceProvidersFactory();
+        resourceProvidersFactory = new ActivityResourceProvidersFactory();
     }
 
     @Test

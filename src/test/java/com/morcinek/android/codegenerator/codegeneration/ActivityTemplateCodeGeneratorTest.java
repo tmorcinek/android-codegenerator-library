@@ -1,7 +1,7 @@
 package com.morcinek.android.codegenerator.codegeneration;
 
 import com.google.common.collect.Lists;
-import com.morcinek.android.codegenerator.codegeneration.providers.ResourceProvidersFactory;
+import com.morcinek.android.codegenerator.codegeneration.providers.factories.ActivityResourceProvidersFactory;
 import com.morcinek.android.codegenerator.codegeneration.templates.ResourceTemplatesProvider;
 import com.morcinek.android.codegenerator.codegeneration.templates.TemplatesProvider;
 import com.morcinek.android.codegenerator.extractor.model.Resource;
@@ -21,7 +21,7 @@ public class ActivityTemplateCodeGeneratorTest {
 
     @Before
     public void setUp() throws Exception {
-        templateCodeGenerator = new TemplateCodeGenerator("Activity_template", new ResourceProvidersFactory(), new ResourceTemplatesProvider());
+        templateCodeGenerator = new TemplateCodeGenerator("Activity_template", new ActivityResourceProvidersFactory(), new ResourceTemplatesProvider());
     }
 
     @Test
