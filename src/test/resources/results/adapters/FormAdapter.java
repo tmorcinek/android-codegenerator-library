@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-public class ${CLASS_NAME} extends BaseAdapter {
+public class FormAdapter extends BaseAdapter {
 
     private List<T> objects = new ArrayList<T>();
 
     private Context context;
     private LayoutInflater layoutInflater;
 
-    public ${CLASS_NAME}(Context context) {
+    public FormAdapter(Context context) {
         this.context = context;
         this.layoutInflater = LayoutInflater.from(context);
     }
@@ -34,9 +34,14 @@ public class ${CLASS_NAME} extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = layoutInflater.inflate(${LAYOUT}, null);
+            convertView = layoutInflater.inflate(R.layout.form, null);
             ViewHolder viewHolder = new ViewHolder();
-${ASSIGNMENTS}
+        button = (ImageButton) findViewById(R.id.button);
+        editTextName = (EditText) findViewById(R.id.edit_text_name);
+        editTextCity = (EditText) findViewById(R.id.edit_text_city);
+        headerText = (TextView) findViewById(R.id.header_text);
+        list = (List) findViewById(android.R.id.list);
+
             convertView.setTag(viewHolder);
         }
         initializeViews((T)getItem(position), (ViewHolder) convertView.getTag());
@@ -48,6 +53,11 @@ ${ASSIGNMENTS}
     }
 
     protected class ViewHolder {
-${FIELDS}
+    private ImageButton button;
+    private EditText editTextName;
+    private EditText editTextCity;
+    private TextView headerText;
+    private List list;
+
     }
 }

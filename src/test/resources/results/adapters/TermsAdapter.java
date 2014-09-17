@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-public class ${CLASS_NAME} extends BaseAdapter {
+public class TermsAdapter extends BaseAdapter {
 
     private List<T> objects = new ArrayList<T>();
 
     private Context context;
     private LayoutInflater layoutInflater;
 
-    public ${CLASS_NAME}(Context context) {
+    public TermsAdapter(Context context) {
         this.context = context;
         this.layoutInflater = LayoutInflater.from(context);
     }
@@ -34,9 +34,11 @@ public class ${CLASS_NAME} extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = layoutInflater.inflate(${LAYOUT}, null);
+            convertView = layoutInflater.inflate(R.layout.terms, null);
             ViewHolder viewHolder = new ViewHolder();
-${ASSIGNMENTS}
+        button = (Button) findViewById(R.id.button);
+        acceptsTerms = (CheckBox) findViewById(R.id.accepts_terms);
+
             convertView.setTag(viewHolder);
         }
         initializeViews((T)getItem(position), (ViewHolder) convertView.getTag());
@@ -48,6 +50,8 @@ ${ASSIGNMENTS}
     }
 
     protected class ViewHolder {
-${FIELDS}
+    private Button button;
+    private CheckBox acceptsTerms;
+
     }
 }
