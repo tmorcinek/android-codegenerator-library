@@ -44,9 +44,9 @@ public class CodeGenerator {
         return generateCode;
     }
 
-    public String getJavaFileName(String filePath) {
+    public String getJavaFileName(String filePath, String resourceName) {
         String fileName = fileNameExtractor.extractFromString(filePath);
-        return new ClassNameBuilder(fileName).builtString().concat(".java");
+        return new ClassNameBuilder(fileName).builtString() + resourceName + ".java";
     }
 
     public InputStream getInputStreamFromString(String code) {

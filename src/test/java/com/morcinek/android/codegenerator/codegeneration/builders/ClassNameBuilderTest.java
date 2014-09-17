@@ -17,6 +17,18 @@ public class ClassNameBuilderTest {
         String className = classNameBuilder.builtString();
 
         // then
-        Assertions.assertThat(className).isNotNull().isEqualTo("MainActivity");
+        Assertions.assertThat(className).isNotNull().isEqualTo("Main");
+    }
+
+    @Test
+    public void builtAdvancedStringTest() throws Exception {
+        // given
+        classNameBuilder = new ClassNameBuilder("main_home_screen");
+
+        // when
+        String className = classNameBuilder.builtString();
+
+        // then
+        Assertions.assertThat(className).isNotNull().isEqualTo("MainHomeScreen");
     }
 }

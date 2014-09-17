@@ -97,7 +97,7 @@ public class CodeGeneratorTest {
         String filename = "this_file.xml";
 
         // when
-        String javaFileName = codeGenerator.getJavaFileName(filename);
+        String javaFileName = codeGenerator.getJavaFileName(filename, "Activity");
 
         // then
         Assertions.assertThat(javaFileName).isNotNull().isEqualTo("ThisFileActivity.java");
@@ -109,7 +109,7 @@ public class CodeGeneratorTest {
         String filename = "this/is/path/to/this_file.xml";
 
         // when
-        String javaFileName = codeGenerator.getJavaFileName(filename);
+        String javaFileName = codeGenerator.getJavaFileName(filename, "Activity");
 
         // then
         Assertions.assertThat(javaFileName).isNotNull().isEqualTo("ThisFileActivity.java");

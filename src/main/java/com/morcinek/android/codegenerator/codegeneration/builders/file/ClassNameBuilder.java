@@ -16,7 +16,7 @@ public class ClassNameBuilder implements CodeBuilder {
 
     @Override
     public String builtString() {
-        return getResourceName(fileName) + "Activity";
+        return getResourceName(fileName);
     }
 
     private String getResourceName(String fileName) {

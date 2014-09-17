@@ -19,29 +19,25 @@ public class TemplateCodeGenerator {
 
     private BuildersCollection buildersCollection;
 
-    private String templateName;
-
     private ResourceProvidersFactory resourceProvidersFactory;
 
-    private TemplatesProvider templatesProvider;
+    private TemplateManager templateManager;
 
     public TemplateCodeGenerator(String templateName, ResourceProvidersFactory resourceProvidersFactory, TemplatesProvider templatesProvider) {
-        this.templateName = templateName;
         this.resourceProvidersFactory = resourceProvidersFactory;
-        this.templatesProvider = templatesProvider;
         this.buildersCollection = new BuildersCollection(templatesProvider);
+        this.templateManager = new TemplateManager(templatesProvider.provideTemplateForName(templateName));
     }
 
     public String generateCode(List<Resource> resources, String fileName) {
         buildersCollection.registerCodeBuilders(getResourceProviders(resources), fileName);
 
-        TemplateManager fileTemplate = new TemplateManager(templatesProvider.provideTemplateForName(templateName));
         Map<String, CodeBuilder> builderMap = buildersCollection.getBuilderMap();
         for (String key : builderMap.keySet()) {
-            fileTemplate.addTemplateValue(key, builderMap.get(key).builtString());
+            templateManager.addTemplateValue(key, builderMap.get(key).builtString());
         }
 
-        return fileTemplate.getResult();
+        return templateManager.getResult();
     }
 
     private List<ResourceProvider> getResourceProviders(List<Resource> resources) {

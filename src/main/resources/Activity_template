@@ -1,4 +1,4 @@
-public class ${CLASS_NAME} extends Activity ${INTERFACES} {
+public class ${CLASS_NAME}Activity extends Activity ${INTERFACES} {
 
 ${FIELDS}
     @Override
