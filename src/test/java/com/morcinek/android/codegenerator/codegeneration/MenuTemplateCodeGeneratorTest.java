@@ -25,7 +25,7 @@ public class MenuTemplateCodeGeneratorTest {
     }
 
     @Test
-    public void produceMainActivityCodeTest() throws Exception {
+    public void produceCreateGameMenuCodeTest() throws Exception {
         // given
         List<Resource> resources = Lists.newArrayList(new Resource(new ResourceId("action_done"), new ResourceType("item")));
 
@@ -34,6 +34,38 @@ public class MenuTemplateCodeGeneratorTest {
 
         // then
         String expectedCode = templatesProvider.provideTemplateForName("results/menus/CreateGame.java");
+        Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
+    }
+
+    @Test
+    public void produceGameSessionMenuCodeTest() throws Exception {
+        // given
+        List<Resource> resources = Lists.newArrayList(
+                new Resource(new ResourceId("action_refresh"), new ResourceType("item")),
+                new Resource(new ResourceId("action_edit"), new ResourceType("item"))
+        );
+
+        // when
+        String generatedCode = templateCodeGenerator.generateCode(resources, "game_session");
+
+        // then
+        String expectedCode = templatesProvider.provideTemplateForName("results/menus/GameSession.java");
+        Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
+    }
+
+    @Test
+    public void produceGamesMenuCodeTest() throws Exception {
+        // given
+        List<Resource> resources = Lists.newArrayList(
+                new Resource(new ResourceId("action_refresh"), new ResourceType("item")),
+                new Resource(new ResourceId("action_settings"), new ResourceType("item"))
+        );
+
+        // when
+        String generatedCode = templateCodeGenerator.generateCode(resources, "games");
+
+        // then
+        String expectedCode = templatesProvider.provideTemplateForName("results/menus/Games.java");
         Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
     }
 }
