@@ -36,20 +36,4 @@ public class CodeGenerator {
         String filename = fileNameExtractor.extractFromString(filePath);
         return templateCodeGenerator.generateCode(resources, filename);
     }
-
-    public String appendPackage(String packageName, String generateCode) {
-        if (!packageName.isEmpty()) {
-            return new PackageBuilder(packageName).builtString() + generateCode;
-        }
-        return generateCode;
-    }
-
-    public String getJavaFileName(String filePath, String resourceName) {
-        String fileName = fileNameExtractor.extractFromString(filePath);
-        return new ClassNameBuilder(fileName).builtString() + resourceName + ".java";
-    }
-
-    public InputStream getInputStreamFromString(String code) {
-        return new ByteArrayInputStream(code.getBytes());
-    }
 }

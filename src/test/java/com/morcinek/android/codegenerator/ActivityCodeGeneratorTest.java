@@ -59,62 +59,6 @@ public class ActivityCodeGeneratorTest {
         Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/CreateGameActivity.java"));
     }
 
-    @Test
-    public void appendPackageTest() throws Exception {
-        // given
-        String packageName = "com.morcinek.grouplaying";
-        String body = "private class MainActivity {}";
-
-        // when
-        String appendPackage = codeGenerator.appendPackage(packageName, body);
-
-        // then
-        Assertions.assertThat(appendPackage).isNotNull().isEqualTo(
-                "package com.morcinek.grouplaying;\n" +
-                        "\n" +
-                        "private class MainActivity {}"
-        );
-    }
-
-    @Test
-    public void appendEmptyPackageTest() throws Exception {
-        // given
-        String packageName = "";
-        String body = "private class MainActivity {}";
-
-        // when
-        String appendPackage = codeGenerator.appendPackage(packageName, body);
-
-        // then
-        Assertions.assertThat(appendPackage).isNotNull().isEqualTo(
-                "private class MainActivity {}"
-        );
-    }
-
-    @Test
-    public void getJavaFileNameTest() throws Exception {
-        // given
-        String filename = "this_file.xml";
-
-        // when
-        String javaFileName = codeGenerator.getJavaFileName(filename, "Activity");
-
-        // then
-        Assertions.assertThat(javaFileName).isNotNull().isEqualTo("ThisFileActivity.java");
-    }
-
-    @Test
-    public void getJavaFileNamePathTest() throws Exception {
-        // given
-        String filename = "this/is/path/to/this_file.xml";
-
-        // when
-        String javaFileName = codeGenerator.getJavaFileName(filename, "Activity");
-
-        // then
-        Assertions.assertThat(javaFileName).isNotNull().isEqualTo("ThisFileActivity.java");
-    }
-
     private String produceCodeFromFilePath(String filePath) throws ParserConfigurationException, SAXException, XPathExpressionException, IOException {
         return codeGenerator.produceCode(inputStreamProvider.getStreamFromResource(filePath), filePath);
     }
