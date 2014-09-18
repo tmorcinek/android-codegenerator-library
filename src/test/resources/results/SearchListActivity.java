@@ -1,3 +1,10 @@
+import android.os.Bundle;
+import android.app.Activity;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
+
+
 public class SearchListActivity extends Activity  {
 
     private ListView list;

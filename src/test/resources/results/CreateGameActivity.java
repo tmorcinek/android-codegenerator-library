@@ -1,3 +1,8 @@
+import android.os.Bundle;
+import android.app.Activity;
+import android.widget.EditText;
+
+
 public class CreateGameActivity extends Activity  {
 
 

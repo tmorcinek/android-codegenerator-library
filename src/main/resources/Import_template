@@ -1,0 +1,1 @@
+import ${RESOURCE_PACKAGE}.${RESOURCE_TYPE};

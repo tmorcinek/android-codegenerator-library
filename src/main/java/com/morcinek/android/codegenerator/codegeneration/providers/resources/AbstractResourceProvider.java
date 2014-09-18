@@ -30,6 +30,7 @@ public abstract class AbstractResourceProvider implements ResourceProvider {
         values.put("RESOURCE_TYPE", resource.getResourceType().getClassName());
         values.put("RESOURCE_NAME", getResourceName(resource));
         values.put("RESOURCE_NAME_CAPITALIZED", StringUtils.capitalize(getResourceName(resource)));
+        values.put("RESOURCE_PACKAGE", getPackageName(resource));
         return values;
     }
 
@@ -48,5 +49,17 @@ public abstract class AbstractResourceProvider implements ResourceProvider {
             return resourceId.getNamespace().concat(".R.id.").concat(resourceId.getName());
         }
         return "R.id." + resourceId.getName();
+    }
+
+    private String getPackageName(Resource resource) {
+        String packageName = resource.getResourceType().getPackageName();
+        if (packageName == null) {
+            if (resource.getResourceType().getClassName().equals("View")) {
+                return "android.view";
+            } else {
+                return "android.widget";
+            }
+        }
+        return packageName;
     }
 }

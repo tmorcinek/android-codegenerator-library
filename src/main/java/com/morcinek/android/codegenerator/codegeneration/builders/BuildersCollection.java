@@ -3,10 +3,7 @@ package com.morcinek.android.codegenerator.codegeneration.builders;
 import com.google.common.collect.Maps;
 import com.morcinek.android.codegenerator.codegeneration.builders.file.ClassNameBuilder;
 import com.morcinek.android.codegenerator.codegeneration.builders.file.ResourceNameBuilder;
-import com.morcinek.android.codegenerator.codegeneration.builders.resources.AssignmentsBuilder;
-import com.morcinek.android.codegenerator.codegeneration.builders.resources.FieldsBuilder;
-import com.morcinek.android.codegenerator.codegeneration.builders.resources.InterfaceBuilder;
-import com.morcinek.android.codegenerator.codegeneration.builders.resources.MethodsBuilder;
+import com.morcinek.android.codegenerator.codegeneration.builders.resources.*;
 import com.morcinek.android.codegenerator.codegeneration.providers.ResourceProvider;
 import com.morcinek.android.codegenerator.codegeneration.templates.TemplatesProvider;
 
@@ -37,6 +34,7 @@ public class BuildersCollection {
         registerCodeBuilder(builderMap, new FieldsBuilder(resourceProviders, templatesProvider));
         registerCodeBuilder(builderMap, new AssignmentsBuilder(resourceProviders, templatesProvider));
         registerCodeBuilder(builderMap, new MethodsBuilder(resourceProviders, templatesProvider));
+        registerCodeBuilder(builderMap, new ImportsBuilder(resourceProviders, templatesProvider));
     }
 
     private void registerCodeBuilder(Map<String, CodeBuilder> codeBuilderMap, CodeBuilder codeBuilder) {

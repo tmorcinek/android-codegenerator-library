@@ -1,3 +1,7 @@
+import android.os.Bundle;
+import android.app.Activity;
+${IMPORTS}
+
 public class ${CLASS_NAME}Activity extends Activity ${INTERFACES} {
 
 ${FIELDS}
