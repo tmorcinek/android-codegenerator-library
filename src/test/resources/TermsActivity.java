@@ -1,3 +1,9 @@
+import android.os.Bundle;
+import android.app.Activity;
+import android.widget.Button;
+import android.widget.CheckBox;
+
+
 public class TermsActivity extends Activity implements OnClickListener {
 
 
