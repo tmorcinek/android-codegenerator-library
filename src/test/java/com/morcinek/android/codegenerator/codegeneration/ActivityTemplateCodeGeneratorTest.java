@@ -57,7 +57,8 @@ public class ActivityTemplateCodeGeneratorTest {
     public void produceFormActivityCodeTest() throws Exception {
         // given
         List<Resource> resources = Lists.newArrayList(
-                new Resource(new ResourceId("button"), new ResourceType("ImageButton")),
+                new Resource(new ResourceId("imageButton"), new ResourceType("ImageButton")),
+                new Resource(new ResourceId("button"), new ResourceType("Button")),
                 new Resource(new ResourceId("edit_text_name"), new ResourceType("EditText")),
                 new Resource(new ResourceId("edit_text_city"), new ResourceType("EditText")),
                 new Resource(new ResourceId("header_text"), new ResourceType("TextView")),

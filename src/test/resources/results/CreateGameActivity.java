@@ -2,7 +2,6 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.widget.EditText;
 
-
 public class CreateGameActivity extends Activity  {
 
 
@@ -10,7 +9,6 @@ public class CreateGameActivity extends Activity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_game);
-
 
     }
 
@@ -25,6 +23,4 @@ public class CreateGameActivity extends Activity  {
     private EditText getGameUsersNumber(){
         return (EditText) findViewById(R.id.game_users_number);
     }
-
-
 }

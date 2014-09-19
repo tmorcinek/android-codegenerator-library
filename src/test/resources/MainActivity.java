@@ -2,7 +2,6 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.widget.Button;
 
-
 public class MainActivity extends Activity implements OnClickListener {
 
 
@@ -12,7 +11,6 @@ public class MainActivity extends Activity implements OnClickListener {
         setContentView(R.layout.main);
 
         findViewById(R.id.button).setOnClickListener(this);
-
     }
 
     @Override
@@ -24,5 +22,4 @@ public class MainActivity extends Activity implements OnClickListener {
 
         }
     }
-
 }

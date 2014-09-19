@@ -4,7 +4,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-
 public class SearchListActivity extends Activity  {
 
     private ListView list;
@@ -17,12 +16,9 @@ public class SearchListActivity extends Activity  {
 
         list = (ListView) findViewById(android.R.id.list);
         empty = (TextView) findViewById(android.R.id.empty);
-
     }
 
     private EditText getSearchEditText(){
         return (EditText) findViewById(R.id.search_edit_text);
     }
-
-
 }
