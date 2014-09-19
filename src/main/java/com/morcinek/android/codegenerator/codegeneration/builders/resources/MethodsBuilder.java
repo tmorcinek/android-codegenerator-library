@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import com.morcinek.android.codegenerator.codegeneration.providers.ResourceProvider;
 import com.morcinek.android.codegenerator.codegeneration.templates.TemplateManager;
 import com.morcinek.android.codegenerator.codegeneration.templates.TemplatesProvider;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -58,7 +59,8 @@ public class MethodsBuilder extends ResourceCodeBuilder {
         StringBuilder stringBuilder = new StringBuilder();
         for (String method : stringBuilders.keySet()) {
             TemplateManager templateManager = getTemplateManagerForMethod(method);
-            templateManager.addTemplateValue("CASES", stringBuilders.get(method).toString());
+            String methodCases = StringUtils.stripEnd(stringBuilders.get(method).toString(), null);
+            templateManager.addTemplateValue("CASES", methodCases);
             stringBuilder.append(templateManager.getResult());
             stringBuilder.append("\n");
         }

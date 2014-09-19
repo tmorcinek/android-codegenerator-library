@@ -20,7 +20,6 @@ public class TermsActivity extends Activity implements OnClickListener {
             case R.id.button:
                 //TODO implement
                 break;
-
         }
     }
 

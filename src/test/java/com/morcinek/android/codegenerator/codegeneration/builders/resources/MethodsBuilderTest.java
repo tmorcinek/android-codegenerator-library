@@ -52,7 +52,6 @@ public class MethodsBuilderTest {
                         "            case R.id.done_button:\n" +
                         "                //TODO implement\n" +
                         "                break;\n" +
-                        "\n" +
                         "        }\n" +
                         "    }"
         );
@@ -80,7 +79,6 @@ public class MethodsBuilderTest {
                         "            case R.id.exit_button:\n" +
                         "                //TODO implement\n" +
                         "                break;\n" +
-                        "\n" +
                         "        }\n" +
                         "    }"
         );
@@ -113,7 +111,6 @@ public class MethodsBuilderTest {
                         "            case R.id.cancel_button:\n" +
                         "                //TODO implement\n" +
                         "                break;\n" +
-                        "\n" +
                         "        }\n" +
                         "    }\n" +
                         "\n" +

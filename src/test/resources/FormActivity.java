@@ -31,7 +31,6 @@ public class FormActivity extends Activity implements OnClickListener {
             case R.id.button:
                 //TODO implement
                 break;
-
         }
     }
 
