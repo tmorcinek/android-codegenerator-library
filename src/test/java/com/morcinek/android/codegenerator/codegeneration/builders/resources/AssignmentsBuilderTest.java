@@ -46,7 +46,7 @@ public class AssignmentsBuilderTest {
         String value = interfaceBuilder.builtString();
 
         // then
-        Assertions.assertThat(value).isNotNull().isEqualTo("        findViewById(R.id.button).setOnClickListener(this);\n");
+        Assertions.assertThat(value).isNotNull().isEqualTo("findViewById(R.id.button).setOnClickListener(this);");
     }
 
     @Test
@@ -58,7 +58,7 @@ public class AssignmentsBuilderTest {
         String value = interfaceBuilder.builtString();
 
         // then
-        Assertions.assertThat(value).isNotNull().isEqualTo("        view = (View) findViewById(R.id.view);\n");
+        Assertions.assertThat(value).isNotNull().isEqualTo("view = (View) findViewById(R.id.view);");
     }
 
     @Test
@@ -71,8 +71,8 @@ public class AssignmentsBuilderTest {
 
         // then
         Assertions.assertThat(value).isNotNull().isEqualTo(
-                "        findViewById(R.id.button).setOnClickListener(this);\n" +
-                        "        view = (View) findViewById(R.id.view);\n"
+                "findViewById(R.id.button).setOnClickListener(this);\n" +
+                        "        view = (View) findViewById(R.id.view);"
         );
     }
 
