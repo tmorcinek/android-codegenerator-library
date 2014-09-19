@@ -41,6 +41,16 @@ public class FragmentCodeGeneratorTest {
         Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/fragments/ViewPagerFragment.java"));
     }
 
+    @Test
+    public void searchListProduceCodeTest() throws Exception {
+        // given
+        // when
+        String producedCode = produceCodeFromFilePath("layouts/search_list.xml");
+
+        // then
+        Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/fragments/SearchListFragment.java"));
+    }
+
     private String produceCodeFromFilePath(String filePath) throws ParserConfigurationException, SAXException, XPathExpressionException, IOException {
         return codeGenerator.produceCode(inputStreamProvider.getStreamFromResource(filePath), filePath);
     }
