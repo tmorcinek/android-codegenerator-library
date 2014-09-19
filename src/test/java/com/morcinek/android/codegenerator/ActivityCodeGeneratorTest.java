@@ -36,7 +36,7 @@ public class ActivityCodeGeneratorTest {
         String producedCode = produceCodeFromFilePath("layouts/view_pager.xml");
 
         // then
-        Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/ViewPagerActivity.java"));
+        Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/activities/ViewPagerActivity.java"));
     }
 
     @Test
@@ -46,7 +46,7 @@ public class ActivityCodeGeneratorTest {
         String producedCode = produceCodeFromFilePath("layouts/search_list.xml");
 
         // then
-        Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/SearchListActivity.java"));
+        Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/activities/SearchListActivity.java"));
     }
 
     @Test
@@ -56,7 +56,7 @@ public class ActivityCodeGeneratorTest {
         String producedCode = produceCodeFromFilePath("layouts/create_game.xml");
 
         // then
-        Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/CreateGameActivity.java"));
+        Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/activities/CreateGameActivity.java"));
     }
 
     private String produceCodeFromFilePath(String filePath) throws ParserConfigurationException, SAXException, XPathExpressionException, IOException {

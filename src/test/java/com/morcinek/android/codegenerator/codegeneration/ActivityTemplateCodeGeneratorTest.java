@@ -33,7 +33,7 @@ public class ActivityTemplateCodeGeneratorTest {
         String generatedCode = templateCodeGenerator.generateCode(resources, "main");
 
         // then
-        String expectedCode = templatesProvider.provideTemplateForName("MainActivity.java");
+        String expectedCode = templatesProvider.provideTemplateForName("results/activities/MainActivity.java");
         Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
     }
 
@@ -49,7 +49,7 @@ public class ActivityTemplateCodeGeneratorTest {
         String generatedCode = templateCodeGenerator.generateCode(resources, "terms");
 
         // then
-        String expectedCode = templatesProvider.provideTemplateForName("TermsActivity.java");
+        String expectedCode = templatesProvider.provideTemplateForName("results/activities/TermsActivity.java");
         Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
     }
 
@@ -69,7 +69,7 @@ public class ActivityTemplateCodeGeneratorTest {
         String generatedCode = templateCodeGenerator.generateCode(resources, "form");
 
         // then
-        String expectedCode = templatesProvider.provideTemplateForName("FormActivity.java");
+        String expectedCode = templatesProvider.provideTemplateForName("results/activities/FormActivity.java");
         Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
     }
 }
