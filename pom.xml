@@ -9,7 +9,7 @@
     <version>1.0.3</version>
 
     <properties>
-        <plugin.libs>../../com.morcinek.android.codegenerator.plugin/libs</plugin.libs>
+        <plugin.libs>../com.morcinek.android.codegenerator.plugin/libs</plugin.libs>
     </properties>
 
     <build>
