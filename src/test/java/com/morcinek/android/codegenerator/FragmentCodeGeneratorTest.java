@@ -51,6 +51,26 @@ public class FragmentCodeGeneratorTest {
         Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/fragments/SearchListFragment.java"));
     }
 
+    @Test
+    public void createGameProduceCodeTest() throws Exception {
+        // given
+        // when
+        String producedCode = produceCodeFromFilePath("layouts/create_game.xml");
+
+        // then
+        Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/fragments/CreateGameFragment.java"));
+    }
+
+    @Test
+    public void gameListItemProduceCodeTest() throws Exception {
+        // given
+        // when
+        String producedCode = produceCodeFromFilePath("layouts/game_list_item.xml");
+
+        // then
+        Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/fragments/GameListItemFragment.java"));
+    }
+
     private String produceCodeFromFilePath(String filePath) throws ParserConfigurationException, SAXException, XPathExpressionException, IOException {
         return codeGenerator.produceCode(inputStreamProvider.getStreamFromResource(filePath), filePath);
     }
