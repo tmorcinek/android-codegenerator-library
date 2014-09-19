@@ -46,7 +46,7 @@ public class MethodsBuilderTest {
 
         // then
         Assertions.assertThat(value).isNotNull().isEqualTo(
-                "    @Override\n" +
+                "@Override\n" +
                         "    public void onClick(View view) {\n" +
                         "        switch (view.getId()) {\n" +
                         "            case R.id.done_button:\n" +
@@ -54,7 +54,7 @@ public class MethodsBuilderTest {
                         "                break;\n" +
                         "\n" +
                         "        }\n" +
-                        "    }\n"
+                        "    }"
         );
     }
 
@@ -71,7 +71,7 @@ public class MethodsBuilderTest {
 
         // then
         Assertions.assertThat(value).isNotNull().isEqualTo(
-                "    @Override\n" +
+                "@Override\n" +
                         "    public void onClick(View view) {\n" +
                         "        switch (view.getId()) {\n" +
                         "            case R.id.cancel_button:\n" +
@@ -82,7 +82,7 @@ public class MethodsBuilderTest {
                         "                break;\n" +
                         "\n" +
                         "        }\n" +
-                        "    }\n"
+                        "    }"
         );
     }
 
@@ -107,7 +107,7 @@ public class MethodsBuilderTest {
 
         // then
         Assertions.assertThat(value).isNotNull().isEqualTo(
-                "    @Override\n" +
+                "@Override\n" +
                         "    public void onClick(View view) {\n" +
                         "        switch (view.getId()) {\n" +
                         "            case R.id.cancel_button:\n" +
@@ -119,9 +119,7 @@ public class MethodsBuilderTest {
                         "\n" +
                         "    private EditText getEditTextName(){\n" +
                         "        return (EditText) findViewById(R.id.edit_text_name);\n" +
-                        "    }" +
-                        "\n" +
-                        "\n"
+                        "    }"
         );
     }
 
