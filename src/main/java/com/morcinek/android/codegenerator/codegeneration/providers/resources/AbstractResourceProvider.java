@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public abstract class AbstractResourceProvider implements ResourceProvider {
 
-    private Map<String, String> values;
+    private final Map<String, String> values;
 
     protected AbstractResourceProvider(Resource resource) {
         values = createValues(resource);
@@ -22,6 +22,10 @@ public abstract class AbstractResourceProvider implements ResourceProvider {
     @Override
     public Map<String, String> provideValues() {
         return values;
+    }
+
+    public void putExtra(String key, String value) {
+        values.put(key, value);
     }
 
     private Map<String, String> createValues(Resource resource) {

@@ -2,7 +2,6 @@ package com.morcinek.android.codegenerator.codegeneration.providers.factories;
 
 import com.morcinek.android.codegenerator.codegeneration.providers.ResourceProvider;
 import com.morcinek.android.codegenerator.codegeneration.providers.ResourceProvidersFactory;
-import com.morcinek.android.codegenerator.codegeneration.providers.resources.AdapterProvider;
 import com.morcinek.android.codegenerator.codegeneration.providers.resources.MenuProvider;
 import com.morcinek.android.codegenerator.extractor.model.Resource;
 
