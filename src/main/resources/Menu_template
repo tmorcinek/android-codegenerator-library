@@ -7,7 +7,7 @@
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-${ASSIGNMENTS}
+            ${ASSIGNMENTS}
         }
         return super.onOptionsItemSelected(item);
     }

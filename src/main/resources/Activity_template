@@ -4,14 +4,15 @@ ${IMPORTS}
 
 public class ${CLASS_NAME}Activity extends Activity ${INTERFACES} {
 
-${FIELDS}
+    ${FIELDS}
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.${RESOURCE_NAME});
 
-${ASSIGNMENTS}
+        ${ASSIGNMENTS}
     }
 
-${METHODS}
+    ${METHODS}
 }

@@ -39,7 +39,7 @@ public class FieldsBuilder extends ResourceCodeBuilder {
 
     @Override
     public String builtString() {
-        return stringBuilder.toString();
+        return prepareBuildString(stringBuilder.toString());
     }
 
     @Override

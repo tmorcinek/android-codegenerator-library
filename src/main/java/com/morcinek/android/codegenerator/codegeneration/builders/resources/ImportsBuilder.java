@@ -41,8 +41,7 @@ public class ImportsBuilder extends ResourceCodeBuilder {
         for (String objectImport : imports) {
             stringBuilder.append(objectImport);
         }
-
-        return stringBuilder.toString();
+        return prepareBuildString(stringBuilder.toString());
     }
 
     @Override

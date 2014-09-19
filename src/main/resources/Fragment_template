@@ -7,7 +7,8 @@ ${IMPORTS}
 
 public class ${CLASS_NAME}Fragment extends Fragment ${INTERFACES} {
 
-${FIELDS}
+    ${FIELDS}
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -18,8 +19,8 @@ ${FIELDS}
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-${ASSIGNMENTS}
+        ${ASSIGNMENTS}
     }
 
-${METHODS}
+    ${METHODS}
 }

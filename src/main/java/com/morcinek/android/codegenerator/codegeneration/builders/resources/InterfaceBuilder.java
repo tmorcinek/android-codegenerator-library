@@ -43,7 +43,7 @@ public class InterfaceBuilder extends ResourceCodeBuilder {
                 stringBuilder.append(", ");
             }
         }
-        return stringBuilder.toString();
+        return prepareBuildString(stringBuilder.toString());
     }
 
     @Override

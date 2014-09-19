@@ -21,6 +21,14 @@ public abstract class ResourceCodeBuilder implements CodeBuilder {
         }
     }
 
+    protected String prepareBuildString(String string) {
+        if (string.isEmpty()) {
+            return string;
+        } else {
+            return string.trim();
+        }
+    }
+
     protected void initializeFields() {
     }
 
