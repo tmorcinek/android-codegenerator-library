@@ -1,7 +1,6 @@
 package com.morcinek.android.codegenerator;
 
 import com.morcinek.android.codegenerator.codegeneration.TemplateCodeGenerator;
-import com.morcinek.android.codegenerator.codegeneration.providers.factories.AdapterResourceProvidersFactory;
 import com.morcinek.android.codegenerator.codegeneration.providers.factories.MenuResourceProvidersFactory;
 import com.morcinek.android.codegenerator.codegeneration.templates.ResourceTemplatesProvider;
 import com.morcinek.android.codegenerator.codegeneration.templates.TemplatesProvider;
@@ -34,7 +33,7 @@ public class MenuCodeGeneratorTest {
     public void produceCodeCreateGameTest() throws Exception {
         // given
         // when
-        String producedCode = produceCodeFromFilePath("menus/create_game.xml");
+        String producedCode = produceCodeFromFilePath("codegeneration/menus/create_game.xml");
 
         // then
         Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/menus/CreateGame.java"));
@@ -44,7 +43,7 @@ public class MenuCodeGeneratorTest {
     public void produceCodeGamesTest() throws Exception {
         // given
         // when
-        String producedCode = produceCodeFromFilePath("menus/games.xml");
+        String producedCode = produceCodeFromFilePath("codegeneration/menus/games.xml");
 
         // then
         Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/menus/Games.java"));
@@ -54,7 +53,7 @@ public class MenuCodeGeneratorTest {
     public void produceCodeGameSessionTest() throws Exception {
         // given
         // when
-        String producedCode = produceCodeFromFilePath("menus/game_session.xml");
+        String producedCode = produceCodeFromFilePath("codegeneration/menus/game_session.xml");
 
         // then
         Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/menus/GameSession.java"));

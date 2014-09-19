@@ -1,7 +1,6 @@
 package com.morcinek.android.codegenerator;
 
 import com.morcinek.android.codegenerator.codegeneration.TemplateCodeGenerator;
-import com.morcinek.android.codegenerator.codegeneration.providers.factories.ActivityResourceProvidersFactory;
 import com.morcinek.android.codegenerator.codegeneration.providers.factories.AdapterResourceProvidersFactory;
 import com.morcinek.android.codegenerator.codegeneration.templates.ResourceTemplatesProvider;
 import com.morcinek.android.codegenerator.codegeneration.templates.TemplatesProvider;
@@ -34,7 +33,7 @@ public class AdapterCodeGeneratorTest {
     public void gameAdapterProduceCodeTest() throws Exception {
         // given
         // when
-        String producedCode = produceCodeFromFilePath("layouts/game_list_item.xml");
+        String producedCode = produceCodeFromFilePath("codegeneration/layouts/game_list_item.xml");
 
         // then
         Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/adapters/NewGamesAdapter.java"));

@@ -33,7 +33,7 @@ public class ActivityCodeGeneratorTest {
     public void viewPagerProduceCodeTest() throws Exception {
         // given
         // when
-        String producedCode = produceCodeFromFilePath("layouts/view_pager.xml");
+        String producedCode = produceCodeFromFilePath("codegeneration/layouts/view_pager.xml");
 
         // then
         Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/activities/ViewPagerActivity.java"));
@@ -43,7 +43,7 @@ public class ActivityCodeGeneratorTest {
     public void searchListProduceCodeTest() throws Exception {
         // given
         // when
-        String producedCode = produceCodeFromFilePath("layouts/search_list.xml");
+        String producedCode = produceCodeFromFilePath("codegeneration/layouts/search_list.xml");
 
         // then
         Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/activities/SearchListActivity.java"));
@@ -53,7 +53,7 @@ public class ActivityCodeGeneratorTest {
     public void createGameProduceCodeTest() throws Exception {
         // given
         // when
-        String producedCode = produceCodeFromFilePath("layouts/create_game.xml");
+        String producedCode = produceCodeFromFilePath("codegeneration/layouts/create_game.xml");
 
         // then
         Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/activities/CreateGameActivity.java"));
