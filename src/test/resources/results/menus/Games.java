@@ -13,7 +13,6 @@
             case R.id.action_settings:
                 //TODO implement
                 return true;
-
         }
         return super.onOptionsItemSelected(item);
     }
