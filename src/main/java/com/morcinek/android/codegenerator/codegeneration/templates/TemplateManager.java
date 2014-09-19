@@ -24,7 +24,7 @@ public class TemplateManager {
     }
 
     public String getResult() {
-        return template.replaceAll("\\$\\{\\w+\\}", "");
+        return template.replaceAll("\\$\\{\\w+\\}", "").replaceAll("[ ]+\n", "");
     }
 
     private String getKeyWrapper(String key) {
