@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-
 public class GameListItemAdapter extends BaseAdapter {
 
     private List<T> objects = new ArrayList<T>();
@@ -56,9 +55,8 @@ public class GameListItemAdapter extends BaseAdapter {
     }
 
     protected class ViewHolder {
-    private TextView title;
+        private TextView title;
     private TextView description;
     private TextView usersNumber;
-
     }
 }

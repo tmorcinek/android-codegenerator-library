@@ -41,6 +41,7 @@ public class ${CLASS_NAME}Adapter extends BaseAdapter {
             convertView = layoutInflater.inflate(R.layout.${RESOURCE_NAME}, null);
             ViewHolder viewHolder = new ViewHolder();
             ${ASSIGNMENTS}
+
             convertView.setTag(viewHolder);
         }
         initializeViews((T)getItem(position), (ViewHolder) convertView.getTag());

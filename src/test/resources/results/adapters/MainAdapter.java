@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 
-
 public class MainAdapter extends BaseAdapter {
 
     private List<T> objects = new ArrayList<T>();
@@ -54,7 +53,6 @@ public class MainAdapter extends BaseAdapter {
     }
 
     protected class ViewHolder {
-    private Button button;
-
+        private Button button;
     }
 }

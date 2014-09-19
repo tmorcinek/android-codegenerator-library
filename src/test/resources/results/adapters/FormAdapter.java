@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.List;
 
-
 public class FormAdapter extends BaseAdapter {
 
     private List<T> objects = new ArrayList<T>();
@@ -61,11 +60,10 @@ public class FormAdapter extends BaseAdapter {
     }
 
     protected class ViewHolder {
-    private ImageButton button;
+        private ImageButton button;
     private EditText editTextName;
     private EditText editTextCity;
     private TextView headerText;
     private List list;
-
     }
 }

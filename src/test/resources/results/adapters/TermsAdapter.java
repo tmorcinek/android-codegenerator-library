@@ -9,7 +9,6 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 
-
 public class TermsAdapter extends BaseAdapter {
 
     private List<T> objects = new ArrayList<T>();
@@ -56,8 +55,7 @@ public class TermsAdapter extends BaseAdapter {
     }
 
     protected class ViewHolder {
-    private Button button;
+        private Button button;
     private CheckBox acceptsTerms;
-
     }
 }
