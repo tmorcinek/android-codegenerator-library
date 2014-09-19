@@ -5,7 +5,6 @@ import android.view.ViewGroup;
 import android.os.Bundle;
 import android.widget.EditText;
 
-
 public class CreateGameFragment extends Fragment  {
 
 
@@ -18,7 +17,6 @@ public class CreateGameFragment extends Fragment  {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
 
     }
 
@@ -33,6 +31,4 @@ public class CreateGameFragment extends Fragment  {
     private EditText getGameUsersNumber(){
         return (EditText) getView().findViewById(R.id.game_users_number);
     }
-
-
 }

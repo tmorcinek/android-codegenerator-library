@@ -7,7 +7,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-
 public class SearchListFragment extends Fragment  {
 
     private ListView list;
@@ -25,12 +24,9 @@ public class SearchListFragment extends Fragment  {
 
         list = (ListView) view.findViewById(android.R.id.list);
         empty = (TextView) view.findViewById(android.R.id.empty);
-
     }
 
     private EditText getSearchEditText(){
         return (EditText) getView().findViewById(R.id.search_edit_text);
     }
-
-
 }

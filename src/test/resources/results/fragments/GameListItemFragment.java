@@ -5,7 +5,6 @@ import android.view.ViewGroup;
 import android.os.Bundle;
 import android.widget.TextView;
 
-
 public class GameListItemFragment extends Fragment  {
 
     private TextView title;
@@ -25,8 +24,6 @@ public class GameListItemFragment extends Fragment  {
         title = (TextView) view.findViewById(R.id.title);
         description = (TextView) view.findViewById(R.id.description);
         usersNumber = (TextView) view.findViewById(R.id.users_number);
-
     }
-
 
 }

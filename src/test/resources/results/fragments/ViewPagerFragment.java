@@ -5,7 +5,6 @@ import android.view.ViewGroup;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 
-
 public class ViewPagerFragment extends Fragment  {
 
     private ViewPager pager;
@@ -21,8 +20,6 @@ public class ViewPagerFragment extends Fragment  {
         super.onViewCreated(view, savedInstanceState);
 
         pager = (ViewPager) view.findViewById(R.id.pager);
-
     }
-
 
 }
