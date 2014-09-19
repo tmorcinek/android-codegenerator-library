@@ -1,4 +1,4 @@
     private ${RESOURCE_TYPE} get${RESOURCE_NAME_CAPITALIZED}(){
-        return (${RESOURCE_TYPE}) findViewById(${RESOURCE_ID});
+        return (${RESOURCE_TYPE}) ${CONTAINER_PREFIX}findViewById(${RESOURCE_ID});
     }
 

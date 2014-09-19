@@ -1,1 +1,1 @@
-        findViewById(${RESOURCE_ID}).setOnClickListener(this);
+        ${CONTAINER_PREFIX}findViewById(${RESOURCE_ID}).setOnClickListener(this);
