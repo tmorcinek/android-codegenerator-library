@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.morcinek.android.codegenerator</groupId>
-    <artifactId>codegenerator-library</artifactId>
+    <artifactId>android-codegenerator-library</artifactId>
     <version>1.0.3</version>
 
     <properties>
