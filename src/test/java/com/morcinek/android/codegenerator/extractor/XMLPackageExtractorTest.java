@@ -7,8 +7,6 @@ import org.junit.Test;
 
 import java.io.InputStream;
 
-import static org.junit.Assert.*;
-
 public class XMLPackageExtractorTest {
 
     private InputStreamProvider inputStreamProvider = new InputStreamProvider();
@@ -23,7 +21,7 @@ public class XMLPackageExtractorTest {
     @Test
     public void extractPackageFromManifestStreamTest() throws Exception {
         // given
-        InputStream inputStream = inputStreamProvider.getStreamFromResource("AndroidManifest.xml");
+        InputStream inputStream = inputStreamProvider.getStreamFromResource("extractor/manifests/AndroidManifest.xml");
 
         // when
         String packageName = packageExtractor.extractPackageFromManifestStream(inputStream);
@@ -35,7 +33,7 @@ public class XMLPackageExtractorTest {
     @Test
     public void extractPackageFromManifestWhereIsNoPackageStreamTest() throws Exception {
         // given
-        InputStream inputStream = inputStreamProvider.getStreamFromResource("AndroidManifestWithoutPackage.xml");
+        InputStream inputStream = inputStreamProvider.getStreamFromResource("extractor/manifests/AndroidManifestWithoutPackage.xml");
 
         // when
         String packageName = packageExtractor.extractPackageFromManifestStream(inputStream);

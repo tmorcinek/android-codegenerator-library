@@ -28,7 +28,7 @@ public class XMLResourceExtractorTest {
     @Test
     public void layoutTest() throws Exception {
         // given
-        InputStream inputStream = inputStreamProvider.getStreamFromResource("layout.xml");
+        InputStream inputStream = inputStreamProvider.getStreamFromResource("extractor/layouts/layout.xml");
 
         // when
         List<Resource> resources = resourceExtractor.extractResourceObjectsFromStream(inputStream);
@@ -41,7 +41,7 @@ public class XMLResourceExtractorTest {
     @Test
     public void mainHeader1Test() throws Exception {
         // given
-        InputStream inputStream = inputStreamProvider.getStreamFromResource("main_header_1.xml");
+        InputStream inputStream = inputStreamProvider.getStreamFromResource("extractor/layouts/main_header_1.xml");
 
         // when
         List<Resource> resources = resourceExtractor.extractResourceObjectsFromStream(inputStream);
@@ -53,7 +53,7 @@ public class XMLResourceExtractorTest {
     @Test
     public void mainHeader2Test() throws Exception {
         // given
-        InputStream inputStream = inputStreamProvider.getStreamFromResource("main_header_2.xml");
+        InputStream inputStream = inputStreamProvider.getStreamFromResource("extractor/layouts/main_header_2.xml");
 
         // when
         List<Resource> resources = resourceExtractor.extractResourceObjectsFromStream(inputStream);
@@ -65,7 +65,7 @@ public class XMLResourceExtractorTest {
     @Test
     public void mainNoHeaderTest() throws Exception {
         // given
-        InputStream inputStream = inputStreamProvider.getStreamFromResource("main_no_header.xml");
+        InputStream inputStream = inputStreamProvider.getStreamFromResource("extractor/layouts/main_no_header.xml");
 
         // when
         List<Resource> resources = resourceExtractor.extractResourceObjectsFromStream(inputStream);
@@ -77,7 +77,7 @@ public class XMLResourceExtractorTest {
     @Test
     public void specificTest() throws Exception {
         // given
-        InputStream inputStream = inputStreamProvider.getStreamFromResource("specific.xml");
+        InputStream inputStream = inputStreamProvider.getStreamFromResource("extractor/layouts/specific.xml");
 
         // when
         List<Resource> resources = resourceExtractor.extractResourceObjectsFromStream(inputStream);
@@ -90,7 +90,7 @@ public class XMLResourceExtractorTest {
     @Test
     public void locationsMapTest() throws Exception {
         // given
-        InputStream inputStream = inputStreamProvider.getStreamFromResource("locations_map.xml");
+        InputStream inputStream = inputStreamProvider.getStreamFromResource("extractor/layouts/locations_map.xml");
 
         // when
         List<Resource> resources = resourceExtractor.extractResourceObjectsFromStream(inputStream);
