@@ -12,4 +12,7 @@ target
 /.idea
 /.idea/*
 
+# MacOS
+.DS_Store
+
 
