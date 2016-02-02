@@ -31,6 +31,6 @@ public class BNButtonProvider extends AbstractResourceProvider {
 
     @Override
     public Set<String> provideMethod() {
-        return Sets.newHashSet("BNGetter");
+        return Sets.newHashSet("BNButton");
     }
 }
