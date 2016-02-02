@@ -12,6 +12,6 @@ import java.io.InputStream;
  */
 public interface PackageExtractor {
 
-    public String extractPackageFromManifestStream(InputStream inputStream) throws XPathExpressionException,
+    String extractPackageFromManifestStream(InputStream inputStream) throws
             ParserConfigurationException, SAXException, IOException;
 }

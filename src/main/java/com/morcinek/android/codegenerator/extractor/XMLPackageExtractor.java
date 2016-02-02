@@ -17,7 +17,7 @@ import java.io.InputStream;
 public class XMLPackageExtractor implements PackageExtractor {
 
     @Override
-    public String extractPackageFromManifestStream(InputStream inputStream) throws XPathExpressionException, ParserConfigurationException, SAXException, IOException {
+    public String extractPackageFromManifestStream(InputStream inputStream) throws ParserConfigurationException, SAXException, IOException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document doc = builder.parse(inputStream);
