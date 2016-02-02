@@ -1,7 +1,6 @@
 package com.morcinek.android.codegenerator.codegeneration;
 
 import com.google.common.collect.Lists;
-import com.morcinek.android.codegenerator.codegeneration.providers.factories.ActivityResourceProvidersFactory;
 import com.morcinek.android.codegenerator.codegeneration.providers.factories.BNActivityResourceProvidersFactory;
 import com.morcinek.android.codegenerator.codegeneration.templates.ResourceTemplatesProvider;
 import com.morcinek.android.codegenerator.codegeneration.templates.TemplatesProvider;
@@ -26,15 +25,37 @@ public class BNActivityTemplateCodeGeneratorTest {
     }
 
     @Test
-    public void produceMainActivityCodeTest() throws Exception {
+    public void produceSimpleViewCodeTest() throws Exception {
         // given
-        List<Resource> resources = Lists.newArrayList(new Resource(new ResourceId("button"), new ResourceType("Button")));
+        List<Resource> resources = Lists.newArrayList(
+                createResource("password", "View"),
+                createResource("login", "View")
+        );
 
         // when
         String generatedCode = templateCodeGenerator.generateCode(resources, "main");
 
         // then
-        String expectedCode = templatesProvider.provideTemplateForName("results/activities/BNMainActivity.java");
+        String expectedCode = templatesProvider.provideTemplateForName("results/activities/BNSimpleViewActivity.java");
         Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
+    }
+
+    @Test
+    public void produceSimpleButtonCodeTest() throws Exception {
+        // given
+        List<Resource> resources = Lists.newArrayList(
+                createResource("button","Button")
+        );
+
+        // when
+        String generatedCode = templateCodeGenerator.generateCode(resources, "main");
+
+        // then
+        String expectedCode = templatesProvider.provideTemplateForName("results/activities/BNSimpleButtonActivity.java");
+        Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
+    }
+
+    private Resource createResource(String resourceId, String resourceType) {
+        return new Resource(new ResourceId(resourceId), new ResourceType(resourceType));
     }
 }
