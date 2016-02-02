@@ -1,0 +1,31 @@
+import android.support.v4.app.Fragment;
+import android.view.View;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.os.Bundle;
+${IMPORTS}
+
+public class ${CLASS_NAME}Fragment extends Fragment ${INTERFACES} {
+
+    ${FIELDS}
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.${RESOURCE_NAME}, null);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ButterKnife.bind(this, view);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
+    }
+
+    ${METHODS}
+}
