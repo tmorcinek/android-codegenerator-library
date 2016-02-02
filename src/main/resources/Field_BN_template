@@ -1,0 +1,1 @@
+    @Bind(${RESOURCE_ID}) ${RESOURCE_TYPE} ${RESOURCE_NAME};
