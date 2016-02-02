@@ -1,0 +1,3 @@
+    @OnItemClick(${RESOURCE_ID}) void onItemClick(int position) {
+        //TODO implement
+    }

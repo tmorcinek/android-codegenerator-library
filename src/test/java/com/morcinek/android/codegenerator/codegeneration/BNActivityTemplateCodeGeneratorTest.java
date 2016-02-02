@@ -55,6 +55,22 @@ public class BNActivityTemplateCodeGeneratorTest {
         Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
     }
 
+    @Test
+    public void produceSimpleListCodeTest() throws Exception {
+        // given
+        List<Resource> resources = Lists.newArrayList(
+                createResource("button","Button"),
+                createResource("list","List")
+        );
+
+        // when
+        String generatedCode = templateCodeGenerator.generateCode(resources, "main");
+
+        // then
+        String expectedCode = templatesProvider.provideTemplateForName("results/activities/BNSimpleListActivity.java");
+        Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
+    }
+
     private Resource createResource(String resourceId, String resourceType) {
         return new Resource(new ResourceId(resourceId), new ResourceType(resourceType));
     }
