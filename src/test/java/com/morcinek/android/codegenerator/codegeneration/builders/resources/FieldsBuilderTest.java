@@ -76,11 +76,24 @@ public class FieldsBuilderTest {
         );
     }
 
+    @Test
+    public void builtBNFieldString() throws Exception {
+        // given
+        interfaceBuilder = provideFieldsBuilder(Lists.newArrayList(getMockResourceProvider("view", Sets.newHashSet("BN"))));
+
+        // when
+        String value = interfaceBuilder.builtString();
+
+        // then
+        Assertions.assertThat(value).isNotNull().isEqualTo("@Bind(R.id.view) View view;");
+    }
+
     private ResourceProvider getMockResourceProvider(String name, Set<String> fields) {
         ResourceProvider resourceProvider = Mockito.mock(ResourceProvider.class);
         Map<String, String> treeMap = Maps.newHashMap();
         treeMap.put("RESOURCE_TYPE", StringUtils.capitalize(name));
         treeMap.put("RESOURCE_NAME", name);
+        treeMap.put("RESOURCE_ID", "R.id." + name);
         when(resourceProvider.provideValues()).thenReturn(treeMap);
         when(resourceProvider.provideField()).thenReturn(fields);
         return resourceProvider;
