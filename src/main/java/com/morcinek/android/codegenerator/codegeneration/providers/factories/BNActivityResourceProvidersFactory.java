@@ -13,7 +13,7 @@ public class BNActivityResourceProvidersFactory implements ResourceProvidersFact
 
     @Override
     public ResourceProvider createResourceProvider(Resource resource) {
-        if (isApplicable(resource, "Button")) {
+        if (isApplicable(resource, "Button", "ImageButton")) {
             return new BNButtonProvider(resource);
         } else if (isApplicable(resource, "List")) {
             return new BNListProvider(resource);

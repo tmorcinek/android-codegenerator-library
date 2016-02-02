@@ -44,7 +44,8 @@ public class BNActivityTemplateCodeGeneratorTest {
     public void produceSimpleButtonCodeTest() throws Exception {
         // given
         List<Resource> resources = Lists.newArrayList(
-                createResource("button","Button")
+                createResource("button","Button"),
+                createResource("imageButton","ImageButton")
         );
 
         // when
