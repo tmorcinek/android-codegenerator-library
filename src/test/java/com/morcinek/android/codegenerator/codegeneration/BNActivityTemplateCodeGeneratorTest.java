@@ -72,6 +72,26 @@ public class BNActivityTemplateCodeGeneratorTest {
         Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
     }
 
+    @Test
+    public void produceFormActivityCodeTest() throws Exception {
+        // given
+        List<Resource> resources = Lists.newArrayList(
+                new Resource(new ResourceId("imageButton"), new ResourceType("ImageButton")),
+                new Resource(new ResourceId("button"), new ResourceType("Button")),
+                new Resource(new ResourceId("edit_text_name"), new ResourceType("EditText")),
+                new Resource(new ResourceId("edit_text_city"), new ResourceType("EditText")),
+                new Resource(new ResourceId("header_text"), new ResourceType("TextView")),
+                new Resource(new ResourceId("list", "android"), new ResourceType("List"))
+        );
+
+        // when
+        String generatedCode = templateCodeGenerator.generateCode(resources, "form");
+
+        // then
+        String expectedCode = templatesProvider.provideTemplateForName("results/activities/BNFormActivity.java");
+        Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
+    }
+
     private Resource createResource(String resourceId, String resourceType) {
         return new Resource(new ResourceId(resourceId), new ResourceType(resourceType));
     }
