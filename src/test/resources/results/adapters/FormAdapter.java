@@ -42,14 +42,7 @@ public class FormAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.form, null);
-            ViewHolder viewHolder = new ViewHolder();
-            viewHolder.button = (ImageButton) convertView.findViewById(R.id.button);
-            viewHolder.editTextName = (EditText) convertView.findViewById(R.id.edit_text_name);
-            viewHolder.editTextCity = (EditText) convertView.findViewById(R.id.edit_text_city);
-            viewHolder.headerText = (TextView) convertView.findViewById(R.id.header_text);
-            viewHolder.list = (List) convertView.findViewById(android.R.id.list);
-
-            convertView.setTag(viewHolder);
+            convertView.setTag(new ViewHolder(convertView));
         }
         initializeViews((T)getItem(position), (ViewHolder) convertView.getTag());
         return convertView;
@@ -65,5 +58,13 @@ public class FormAdapter extends BaseAdapter {
     private EditText editTextCity;
     private TextView headerText;
     private List list;
+
+        public ViewHolder(View view) {
+            button = (ImageButton) view.findViewById(R.id.button);
+            editTextName = (EditText) view.findViewById(R.id.edit_text_name);
+            editTextCity = (EditText) view.findViewById(R.id.edit_text_city);
+            headerText = (TextView) view.findViewById(R.id.header_text);
+            list = (List) view.findViewById(android.R.id.list);
+        }
     }
 }

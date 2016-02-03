@@ -39,10 +39,7 @@ public class MainAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.main, null);
-            ViewHolder viewHolder = new ViewHolder();
-            viewHolder.button = (Button) convertView.findViewById(R.id.button);
-
-            convertView.setTag(viewHolder);
+            convertView.setTag(new ViewHolder(convertView));
         }
         initializeViews((T)getItem(position), (ViewHolder) convertView.getTag());
         return convertView;
@@ -54,5 +51,9 @@ public class MainAdapter extends BaseAdapter {
 
     protected class ViewHolder {
         private Button button;
+
+        public ViewHolder(View view) {
+            button = (Button) view.findViewById(R.id.button);
+        }
     }
 }

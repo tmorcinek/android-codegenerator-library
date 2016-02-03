@@ -39,12 +39,7 @@ public class GameListItemAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.game_list_item, null);
-            ViewHolder viewHolder = new ViewHolder();
-            viewHolder.title = (TextView) convertView.findViewById(R.id.title);
-            viewHolder.description = (TextView) convertView.findViewById(R.id.description);
-            viewHolder.usersNumber = (TextView) convertView.findViewById(R.id.users_number);
-
-            convertView.setTag(viewHolder);
+            convertView.setTag(new ViewHolder(convertView));
         }
         initializeViews((T)getItem(position), (ViewHolder) convertView.getTag());
         return convertView;
@@ -58,5 +53,11 @@ public class GameListItemAdapter extends BaseAdapter {
         private TextView title;
     private TextView description;
     private TextView usersNumber;
+
+        public ViewHolder(View view) {
+            title = (TextView) view.findViewById(R.id.title);
+            description = (TextView) view.findViewById(R.id.description);
+            usersNumber = (TextView) view.findViewById(R.id.users_number);
+        }
     }
 }

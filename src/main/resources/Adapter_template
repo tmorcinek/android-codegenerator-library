@@ -39,10 +39,7 @@ public class ${CLASS_NAME}Adapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.${RESOURCE_NAME}, null);
-            ViewHolder viewHolder = new ViewHolder();
-            ${ASSIGNMENTS}
-
-            convertView.setTag(viewHolder);
+            convertView.setTag(new ViewHolder(convertView));
         }
         initializeViews((T)getItem(position), (ViewHolder) convertView.getTag());
         return convertView;
@@ -54,5 +51,9 @@ public class ${CLASS_NAME}Adapter extends BaseAdapter {
 
     protected class ViewHolder {
         ${FIELDS}
+
+        public ViewHolder(View view) {
+            ${ASSIGNMENTS}
+        }
     }
 }

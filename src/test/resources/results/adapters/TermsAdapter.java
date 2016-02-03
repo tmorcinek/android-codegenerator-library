@@ -40,11 +40,7 @@ public class TermsAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.terms, null);
-            ViewHolder viewHolder = new ViewHolder();
-            viewHolder.button = (Button) convertView.findViewById(R.id.button);
-            viewHolder.acceptsTerms = (CheckBox) convertView.findViewById(R.id.accepts_terms);
-
-            convertView.setTag(viewHolder);
+            convertView.setTag(new ViewHolder(convertView));
         }
         initializeViews((T)getItem(position), (ViewHolder) convertView.getTag());
         return convertView;
@@ -57,5 +53,10 @@ public class TermsAdapter extends BaseAdapter {
     protected class ViewHolder {
         private Button button;
     private CheckBox acceptsTerms;
+
+        public ViewHolder(View view) {
+            button = (Button) view.findViewById(R.id.button);
+            acceptsTerms = (CheckBox) view.findViewById(R.id.accepts_terms);
+        }
     }
 }

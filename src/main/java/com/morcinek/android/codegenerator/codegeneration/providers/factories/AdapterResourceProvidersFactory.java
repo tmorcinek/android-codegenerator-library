@@ -13,8 +13,8 @@ public class AdapterResourceProvidersFactory implements ResourceProvidersFactory
     @Override
     public ResourceProvider createResourceProvider(Resource resource) {
         DefaultProvider defaultProvider = new DefaultProvider(resource);
-        defaultProvider.putExtra("RESOURCE_PREFIX", "    viewHolder.");
-        defaultProvider.putExtra("CONTAINER_PREFIX", "convertView.");
+        defaultProvider.putExtra("RESOURCE_PREFIX", "    ");
+        defaultProvider.putExtra("CONTAINER_PREFIX", "view.");
         return defaultProvider;
     }
 }
