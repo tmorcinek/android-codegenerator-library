@@ -36,7 +36,7 @@ public class BFragmentTemplateCodeGeneratorTest {
         String generatedCode = templateCodeGenerator.generateCode(resources, "main");
 
         // then
-        String expectedCode = templatesProvider.provideTemplateForName("results/activities/BSimpleViewFragment.java");
+        String expectedCode = templatesProvider.provideTemplateForName("results/fragments/BSimpleViewFragment.java");
         Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
     }
 
@@ -52,7 +52,7 @@ public class BFragmentTemplateCodeGeneratorTest {
         String generatedCode = templateCodeGenerator.generateCode(resources, "main");
 
         // then
-        String expectedCode = templatesProvider.provideTemplateForName("results/activities/BSimpleButtonFragment.java");
+        String expectedCode = templatesProvider.provideTemplateForName("results/fragments/BSimpleButtonFragment.java");
         Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
     }
 
@@ -68,7 +68,7 @@ public class BFragmentTemplateCodeGeneratorTest {
         String generatedCode = templateCodeGenerator.generateCode(resources, "main");
 
         // then
-        String expectedCode = templatesProvider.provideTemplateForName("results/activities/BSimpleListFragment.java");
+        String expectedCode = templatesProvider.provideTemplateForName("results/fragments/BSimpleListFragment.java");
         Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
     }
 
