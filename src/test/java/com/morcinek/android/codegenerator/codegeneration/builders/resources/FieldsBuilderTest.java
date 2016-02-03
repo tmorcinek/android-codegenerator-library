@@ -77,9 +77,9 @@ public class FieldsBuilderTest {
     }
 
     @Test
-    public void builtBNFieldString() throws Exception {
+    public void builtBFieldString() throws Exception {
         // given
-        interfaceBuilder = provideFieldsBuilder(Lists.newArrayList(getMockResourceProvider("view", Sets.newHashSet("BN"))));
+        interfaceBuilder = provideFieldsBuilder(Lists.newArrayList(getMockResourceProvider("view", Sets.newHashSet("B"))));
 
         // when
         String value = interfaceBuilder.builtString();

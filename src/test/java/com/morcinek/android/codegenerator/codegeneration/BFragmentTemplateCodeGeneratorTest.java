@@ -1,7 +1,7 @@
 package com.morcinek.android.codegenerator.codegeneration;
 
 import com.google.common.collect.Lists;
-import com.morcinek.android.codegenerator.codegeneration.providers.factories.BNActivityResourceProvidersFactory;
+import com.morcinek.android.codegenerator.codegeneration.providers.factories.BActivityResourceProvidersFactory;
 import com.morcinek.android.codegenerator.codegeneration.templates.ResourceTemplatesProvider;
 import com.morcinek.android.codegenerator.codegeneration.templates.TemplatesProvider;
 import com.morcinek.android.codegenerator.extractor.model.Resource;
@@ -13,7 +13,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-public class BNActivityTemplateCodeGeneratorTest {
+public class BFragmentTemplateCodeGeneratorTest {
 
     private TemplatesProvider templatesProvider = new ResourceTemplatesProvider();
 
@@ -21,7 +21,7 @@ public class BNActivityTemplateCodeGeneratorTest {
 
     @Before
     public void setUp() throws Exception {
-        templateCodeGenerator = new TemplateCodeGenerator("BNActivity_template", new BNActivityResourceProvidersFactory(), new ResourceTemplatesProvider());
+        templateCodeGenerator = new TemplateCodeGenerator("BFragment_template", new BActivityResourceProvidersFactory(), new ResourceTemplatesProvider());
     }
 
     @Test
@@ -36,7 +36,7 @@ public class BNActivityTemplateCodeGeneratorTest {
         String generatedCode = templateCodeGenerator.generateCode(resources, "main");
 
         // then
-        String expectedCode = templatesProvider.provideTemplateForName("results/activities/BNSimpleViewActivity.java");
+        String expectedCode = templatesProvider.provideTemplateForName("results/activities/BSimpleViewFragment.java");
         Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
     }
 
@@ -52,7 +52,7 @@ public class BNActivityTemplateCodeGeneratorTest {
         String generatedCode = templateCodeGenerator.generateCode(resources, "main");
 
         // then
-        String expectedCode = templatesProvider.provideTemplateForName("results/activities/BNSimpleButtonActivity.java");
+        String expectedCode = templatesProvider.provideTemplateForName("results/activities/BSimpleButtonFragment.java");
         Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
     }
 
@@ -68,7 +68,7 @@ public class BNActivityTemplateCodeGeneratorTest {
         String generatedCode = templateCodeGenerator.generateCode(resources, "main");
 
         // then
-        String expectedCode = templatesProvider.provideTemplateForName("results/activities/BNSimpleListActivity.java");
+        String expectedCode = templatesProvider.provideTemplateForName("results/activities/BSimpleListFragment.java");
         Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
     }
 
@@ -88,7 +88,7 @@ public class BNActivityTemplateCodeGeneratorTest {
         String generatedCode = templateCodeGenerator.generateCode(resources, "form");
 
         // then
-        String expectedCode = templatesProvider.provideTemplateForName("results/activities/BNFormActivity.java");
+        String expectedCode = templatesProvider.provideTemplateForName("results/activities/BFormFragment.java");
         Assertions.assertThat(generatedCode).isNotNull().isEqualTo(expectedCode);
     }
 

@@ -9,16 +9,16 @@ import com.morcinek.android.codegenerator.extractor.model.Resource;
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
  */
-public class BNActivityResourceProvidersFactory implements ResourceProvidersFactory {
+public class BActivityResourceProvidersFactory implements ResourceProvidersFactory {
 
     @Override
     public ResourceProvider createResourceProvider(Resource resource) {
         if (isApplicable(resource, "Button", "ImageButton")) {
-            return new BNButtonProvider(resource);
+            return new BButtonProvider(resource);
         } else if (isApplicable(resource, "List")) {
-            return new BNListProvider(resource);
+            return new BListProvider(resource);
         }
-        return new BNDefaultProvider(resource);
+        return new BDefaultProvider(resource);
     }
 
     private boolean isApplicable(Resource resource, String... resourcesNames) {

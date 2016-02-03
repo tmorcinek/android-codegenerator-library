@@ -1,7 +1,7 @@
 package com.morcinek.android.codegenerator;
 
 import com.morcinek.android.codegenerator.codegeneration.TemplateCodeGenerator;
-import com.morcinek.android.codegenerator.codegeneration.providers.factories.BNActivityResourceProvidersFactory;
+import com.morcinek.android.codegenerator.codegeneration.providers.factories.BActivityResourceProvidersFactory;
 import com.morcinek.android.codegenerator.codegeneration.templates.ResourceTemplatesProvider;
 import com.morcinek.android.codegenerator.codegeneration.templates.TemplatesProvider;
 import com.morcinek.android.codegenerator.extractor.XMLResourceExtractor;
@@ -16,7 +16,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathExpressionException;
 import java.io.IOException;
 
-public class BNActivityCodeGeneratorTest {
+public class BActivityCodeGeneratorTest {
 
     private CodeGenerator codeGenerator;
 
@@ -26,7 +26,7 @@ public class BNActivityCodeGeneratorTest {
 
     @Before
     public void setUp() throws Exception {
-        codeGenerator = new CodeGenerator(XMLResourceExtractor.createResourceExtractor(), new FileNameExtractor(), new TemplateCodeGenerator("BNActivity_template", new BNActivityResourceProvidersFactory(), new ResourceTemplatesProvider()));
+        codeGenerator = new CodeGenerator(XMLResourceExtractor.createResourceExtractor(), new FileNameExtractor(), new TemplateCodeGenerator("BActivity_template", new BActivityResourceProvidersFactory(), new ResourceTemplatesProvider()));
     }
 
     @Test
@@ -36,7 +36,7 @@ public class BNActivityCodeGeneratorTest {
         String producedCode = produceCodeFromFilePath("codegeneration/layouts/butterknife_simple.xml");
 
         // then
-        Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/activities/ButterknifeSimpleActivity.java"));
+        Assertions.assertThat(producedCode).isNotNull().isEqualTo(templatesProvider.provideTemplateForName("results/activities/BSimpleActivity.java"));
     }
 
     private String produceCodeFromFilePath(String filePath) throws ParserConfigurationException, SAXException, XPathExpressionException, IOException {

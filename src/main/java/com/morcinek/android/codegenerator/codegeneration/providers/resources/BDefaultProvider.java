@@ -8,9 +8,9 @@ import java.util.Set;
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
  */
-public class BNListProvider extends AbstractResourceProvider {
+public class BDefaultProvider extends AbstractResourceProvider {
 
-    public BNListProvider(Resource resource) {
+    public BDefaultProvider(Resource resource) {
         super(resource);
     }
 
@@ -26,11 +26,11 @@ public class BNListProvider extends AbstractResourceProvider {
 
     @Override
     public Set<String> provideField() {
-        return Sets.newHashSet("BN");
+        return Sets.newHashSet("B");
     }
 
     @Override
     public Set<String> provideMethod() {
-        return Sets.newHashSet("BNList");
+        return null;
     }
 }

@@ -8,9 +8,9 @@ import java.util.Set;
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
  */
-public class BNButtonProvider extends AbstractResourceProvider {
+public class BButtonProvider extends AbstractResourceProvider {
 
-    public BNButtonProvider(Resource resource) {
+    public BButtonProvider(Resource resource) {
         super(resource);
     }
 
@@ -31,6 +31,6 @@ public class BNButtonProvider extends AbstractResourceProvider {
 
     @Override
     public Set<String> provideMethod() {
-        return Sets.newHashSet("BNButton");
+        return Sets.newHashSet("BButton");
     }
 }
