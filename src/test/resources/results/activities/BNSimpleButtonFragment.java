@@ -27,20 +27,20 @@ public class MainFragment extends Fragment  {
         ButterKnife.unbind(this);
     }
 
-    @OnClick(R.id.button) void onClickButton() {
+    @OnClick(R.id.button) void onButtonClick() {
         //TODO implement
     }
 
-    @OnLongClick(R.id.button) boolean onLongClickButton() {
+    @OnLongClick(R.id.button) boolean onButtonLongClick() {
         //TODO implement
         return true;
     }
 
-    @OnClick(R.id.imageButton) void onClickImageButton() {
+    @OnClick(R.id.imageButton) void onImageButtonClick() {
         //TODO implement
     }
 
-    @OnLongClick(R.id.imageButton) boolean onLongClickImageButton() {
+    @OnLongClick(R.id.imageButton) boolean onImageButtonLongClick() {
         //TODO implement
         return true;
     }

@@ -1,8 +1,8 @@
-    @OnClick(${RESOURCE_ID}) void onClick${RESOURCE_NAME_CAPITALIZED}() {
+    @OnClick(${RESOURCE_ID}) void on${RESOURCE_NAME_CAPITALIZED}Click() {
         //TODO implement
     }
 
-    @OnLongClick(${RESOURCE_ID}) boolean onLongClick${RESOURCE_NAME_CAPITALIZED}() {
+    @OnLongClick(${RESOURCE_ID}) boolean on${RESOURCE_NAME_CAPITALIZED}LongClick() {
         //TODO implement
         return true;
     }
